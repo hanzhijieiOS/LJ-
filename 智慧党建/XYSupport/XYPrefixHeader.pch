@@ -1,0 +1,28 @@
+//
+//  XYPrefixHeader.pch
+//  智慧党建
+//
+//  Created by 韩智杰 on 2018/12/17.
+//  Copyright © 2018年 韩智杰. All rights reserved.
+//
+
+#ifndef XYPrefixHeader_pch
+#define XYPrefixHeader_pch
+
+#import "XYBaseViewController.h"
+#import "XYBaseTableView.h"
+#import "XYBaseTableViewCell.h"
+#import "AFNetworking.h"
+#import "UIImageView+WebCache.h"
+#import "JSONModel.h"
+#import "JLRoutes.h"
+#import "Masonry.h"
+#import "XYUtils.h"
+#import "XYLibDefine.h"
+#import "XYMacroDefine.h"
+#import "UIView+Position.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* XYPrefixHeader_pch */

@@ -1,0 +1,4 @@
+platform:ios,'8.0'
+target '智慧党建' do
+pod 'SDCycleScrollView','~>1.75'
+end
