@@ -24,11 +24,11 @@
 }
 
 - (void)registerRouteWithHome:(XYNavigationController *)navigation{
-    [[JLRoutes routesForScheme:@"XYHome"] addRoute:@"/Home/:ViewController/:Scheme" handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
+    [[JLRoutes routesForScheme:@"XYHome"] addRoute:@"/Home/:ViewController" handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
         Class class = NSClassFromString(parameters[@"ViewController"]);
         XYBaseViewController * nextVC = [[class alloc] init];
         [self sendParam:parameters toViewController:nextVC];
-        XYSwitchScheme scheme = [parameters[@"scheme"] integerValue];
+        XYSwitchScheme scheme = [parameters[@"Scheme"] integerValue];
         if (scheme == XYSwitchPush) {
             [navigation pushViewController:nextVC animated:YES];
         }else if(scheme == XYSwitchPresent){
@@ -42,11 +42,11 @@
 }
 
 - (void)registerRouteWithMessage:(XYNavigationController *)navigation{
-    [[JLRoutes routesForScheme:@"XYMessage"] addRoute:@"/Message/:ViewController/:Scheme" handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
+    [[JLRoutes routesForScheme:@"XYMessage"] addRoute:@"/Message/:ViewController" handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
         Class class = NSClassFromString(parameters[@"ViewController"]);
         XYBaseViewController * nextVC = [[class alloc] init];
         [self sendParam:parameters toViewController:nextVC];
-        XYSwitchScheme scheme = [parameters[@"scheme"] integerValue];
+        XYSwitchScheme scheme = [parameters[@"Scheme"] integerValue];
         if (scheme == XYSwitchPush) {
             [navigation pushViewController:nextVC animated:YES];
         }else if(scheme == XYSwitchPresent){
@@ -60,11 +60,11 @@
 }
 
 - (void)registerRouteWithFind:(XYNavigationController *)navigation{
-    [[JLRoutes routesForScheme:@"XYFind"] addRoute:@"/Find/:ViewController/:Scheme" handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
+    [[JLRoutes routesForScheme:@"XYFind"] addRoute:@"/Find/:ViewController" handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
         Class class = NSClassFromString(parameters[@"ViewController"]);
         XYBaseViewController * nextVC = [[class alloc] init];
         [self sendParam:parameters toViewController:nextVC];
-        XYSwitchScheme scheme = [parameters[@"scheme"] integerValue];
+        XYSwitchScheme scheme = [parameters[@"Scheme"] integerValue];
         if (scheme == XYSwitchPush) {
             [navigation pushViewController:nextVC animated:YES];
         }else if(scheme == XYSwitchPresent){
@@ -78,11 +78,11 @@
 }
 
 - (void)registerRouteWithMine:(XYNavigationController *)navigation{
-    [[JLRoutes routesForScheme:@"XYMine"] addRoute:@"/Mine/:ViewController/:Scheme" handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
+    [[JLRoutes routesForScheme:@"XYMine"] addRoute:@"/Mine/:ViewController" handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
         Class class = NSClassFromString(parameters[@"ViewController"]);
         XYBaseViewController * nextVC = [[class alloc] init];
         [self sendParam:parameters toViewController:nextVC];
-        XYSwitchScheme scheme = [parameters[@"scheme"] integerValue];
+        XYSwitchScheme scheme = [parameters[@"Scheme"] integerValue];
         if (scheme == XYSwitchPush) {
             [navigation pushViewController:nextVC animated:YES];
         }else if(scheme == XYSwitchPresent){

@@ -74,10 +74,10 @@ static NSString * cellIdentifier = @"XYHomeCollectionViewCell";
     NSString * URLStr = @"";
     switch (indexPath.row) {
         case 0:
-            URLStr = @"XYHome://Home/XYPaymentViewController/scheme=0";
+            URLStr = @"XYHome://Home/XYPaymentViewController?Scheme=0";
             break;
         case 1:
-            URLStr = @"XYHome://Home/XYRegulationController/scheme=0";
+            URLStr = @"XYHome://Home/XYRegulationController?Scheme=0";
             break;
         default:
             break;

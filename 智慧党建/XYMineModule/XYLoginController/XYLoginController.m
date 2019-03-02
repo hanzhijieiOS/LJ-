@@ -7,11 +7,14 @@
 //
 
 #import "XYLoginController.h"
+#import "XYLoginTextField.h"
+#define K_LeftGap 12
 
 @interface XYLoginController ()
 
-@property (nonatomic, strong) UILabel * userNameLbl;
-@property (nonatomic, strong) UILabel * passwordLbl;
+@property (nonatomic, strong) XYLoginTextField * userName;
+@property (nonatomic, strong) XYLoginTextField * password;
+@property (nonatomic, strong) UIButton * backButton;
 
 @end
 
@@ -19,6 +22,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    UIView * userView = [[UIView alloc] initWithFrame:CGRectMake(K_LeftGap, 200, self.view.width - 2 * K_LeftGap, 46)];
+    userView.layer.cornerRadius = 22;
+    userView.layer.borderWidth = 1;
+    userView.layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor redColor]);
+    
+    [self.view addSubview:self.userName];
+//    self.userName.backgroundColor = [UIColor yellowColor];
+//    self.userName.layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor redColor]);
+//    self.userName.layer.borderWidth = 1;
+//    self.userName.layer.cornerRadius = 22;
+//    self.userName.layer.masksToBounds = YES;
+    [self.view addSubview:self.password];
+    [self.view addSubview:self.backButton];
     // Do any additional setup after loading the view.
 }
 
@@ -26,20 +43,35 @@
     
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (XYLoginTextField *)userName{
+    if (!_userName) {
+        _userName = [[XYLoginTextField alloc] initWithFrame:CGRectMake(K_LeftGap, 200, self.view.width - 2 * K_LeftGap, 46)];
+        _userName.imageView.image = [UIImage imageNamed:@"dl_zhanghao.png"];
+        _userName.textField.placeholder = @"账号";
+    }
+    return _userName;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (XYLoginTextField *)password{
+    if (!_password) {
+        _password = [[XYLoginTextField alloc] initWithFrame:CGRectMake(K_LeftGap, 270, self.view.width - 2 * K_LeftGap, 46)];
+        _password.imageView.image = [UIImage imageNamed:@"dl_mima.png"];
+        _password.textField.placeholder = @"密码";
+    }
+    return _password;
 }
-*/
+
+- (UIButton *)backButton{
+    if (!_backButton) {
+        _backButton = [[UIButton alloc] initWithFrame:CGRectMake(K_LeftGap, K_LeftGap + STATUSHEIGHT, 30, 30)];
+        [_backButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+        [_backButton setImage:[UIImage imageNamed:@"cha.png"] forState:UIControlStateNormal];
+    }
+    return _backButton;
+}
+
+- (void)dismiss{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

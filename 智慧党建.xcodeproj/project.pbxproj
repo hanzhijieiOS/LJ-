@@ -107,6 +107,18 @@
 		D964253D2221637A008AFDA2 /* XYPaymentDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D964253C2221637A008AFDA2 /* XYPaymentDetailController.m */; };
 		D9642546222174CD008AFDA2 /* XYHomeNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9642545222174CD008AFDA2 /* XYHomeNewsCell.m */; };
 		D96425572221917E008AFDA2 /* XYPaymentDetailTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D96425562221917E008AFDA2 /* XYPaymentDetailTopView.m */; };
+		D964A645222AC44500E5F659 /* dl_zhanghao@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D964A643222AC44400E5F659 /* dl_zhanghao@2x.png */; };
+		D964A646222AC44500E5F659 /* dl_mima@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D964A644222AC44400E5F659 /* dl_mima@2x.png */; };
+		D964A64A222AC9CC00E5F659 /* XYMineTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D964A649222AC9CC00E5F659 /* XYMineTableView.m */; };
+		D964A655222ACD4800E5F659 /* 退出登录@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D964A64F222ACD4700E5F659 /* 退出登录@2x.png */; };
+		D964A657222ACD4800E5F659 /* 学习档案@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D964A651222ACD4700E5F659 /* 学习档案@2x.png */; };
+		D964A658222ACD4800E5F659 /* 我的申请@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D964A652222ACD4800E5F659 /* 我的申请@2x.png */; };
+		D964A659222ACD4800E5F659 /* 版本更新@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D964A653222ACD4800E5F659 /* 版本更新@2x.png */; };
+		D964A65A222ACD4800E5F659 /* 我的收藏@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D964A654222ACD4800E5F659 /* 我的收藏@2x.png */; };
+		D964A65C222ACE8500E5F659 /* 消息通知@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D964A65B222ACE8500E5F659 /* 消息通知@2x.png */; };
+		D964A65F222AD58900E5F659 /* XYMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D964A65E222AD58900E5F659 /* XYMineHeaderView.m */; };
+		D964A665222AEB5500E5F659 /* cha@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D964A664222AEB5500E5F659 /* cha@2x.png */; };
+		D964A668222AF0C800E5F659 /* XYLoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D964A667222AF0C800E5F659 /* XYLoginTextField.m */; };
 		D967FF6021DC8C7100A8DB00 /* XYHomeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D967FF5F21DC8C7100A8DB00 /* XYHomeTableView.m */; };
 		D967FFBA21DC91B300A8DB00 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = D967FFAD21DC91B300A8DB00 /* TAAbstractDotView.m */; };
 		D967FFBB21DC91B300A8DB00 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = D967FFAF21DC91B300A8DB00 /* TAAnimatedDotView.m */; };
@@ -338,6 +350,21 @@
 		D9642545222174CD008AFDA2 /* XYHomeNewsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYHomeNewsCell.m; sourceTree = "<group>"; };
 		D96425552221917E008AFDA2 /* XYPaymentDetailTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYPaymentDetailTopView.h; sourceTree = "<group>"; };
 		D96425562221917E008AFDA2 /* XYPaymentDetailTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYPaymentDetailTopView.m; sourceTree = "<group>"; };
+		D964A643222AC44400E5F659 /* dl_zhanghao@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_zhanghao@2x.png"; sourceTree = "<group>"; };
+		D964A644222AC44400E5F659 /* dl_mima@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_mima@2x.png"; sourceTree = "<group>"; };
+		D964A648222AC9CC00E5F659 /* XYMineTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMineTableView.h; sourceTree = "<group>"; };
+		D964A649222AC9CC00E5F659 /* XYMineTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMineTableView.m; sourceTree = "<group>"; };
+		D964A64F222ACD4700E5F659 /* 退出登录@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "退出登录@2x.png"; sourceTree = "<group>"; };
+		D964A651222ACD4700E5F659 /* 学习档案@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "学习档案@2x.png"; sourceTree = "<group>"; };
+		D964A652222ACD4800E5F659 /* 我的申请@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的申请@2x.png"; sourceTree = "<group>"; };
+		D964A653222ACD4800E5F659 /* 版本更新@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "版本更新@2x.png"; sourceTree = "<group>"; };
+		D964A654222ACD4800E5F659 /* 我的收藏@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的收藏@2x.png"; sourceTree = "<group>"; };
+		D964A65B222ACE8500E5F659 /* 消息通知@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息通知@2x.png"; sourceTree = "<group>"; };
+		D964A65D222AD58900E5F659 /* XYMineHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMineHeaderView.h; sourceTree = "<group>"; };
+		D964A65E222AD58900E5F659 /* XYMineHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMineHeaderView.m; sourceTree = "<group>"; };
+		D964A664222AEB5500E5F659 /* cha@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cha@2x.png"; sourceTree = "<group>"; };
+		D964A666222AF0C800E5F659 /* XYLoginTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYLoginTextField.h; sourceTree = "<group>"; };
+		D964A667222AF0C800E5F659 /* XYLoginTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYLoginTextField.m; sourceTree = "<group>"; };
 		D967FF5E21DC8C7100A8DB00 /* XYHomeTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYHomeTableView.h; sourceTree = "<group>"; };
 		D967FF5F21DC8C7100A8DB00 /* XYHomeTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYHomeTableView.m; sourceTree = "<group>"; };
 		D967FFAC21DC91B300A8DB00 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
@@ -660,6 +687,7 @@
 		D9388E3521C7B39600715BC7 /* XYMineModule */ = {
 			isa = PBXGroup;
 			children = (
+				D964A647222AC9A300E5F659 /* View */,
 				D994A6C521E8FB150084E0FA /* XYLoginController */,
 				D9388E3F21C7B40D00715BC7 /* XYMineViewController.h */,
 				D9388E4021C7B40D00715BC7 /* XYMineViewController.m */,
@@ -797,6 +825,66 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		D964A647222AC9A300E5F659 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D964A648222AC9CC00E5F659 /* XYMineTableView.h */,
+				D964A649222AC9CC00E5F659 /* XYMineTableView.m */,
+				D964A65D222AD58900E5F659 /* XYMineHeaderView.h */,
+				D964A65E222AD58900E5F659 /* XYMineHeaderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D964A64E222ACD3200E5F659 /* XYMine */ = {
+			isa = PBXGroup;
+			children = (
+				D964A664222AEB5500E5F659 /* cha@2x.png */,
+				D964A644222AC44400E5F659 /* dl_mima@2x.png */,
+				D964A643222AC44400E5F659 /* dl_zhanghao@2x.png */,
+				D964A65B222ACE8500E5F659 /* 消息通知@2x.png */,
+				D964A653222ACD4800E5F659 /* 版本更新@2x.png */,
+				D964A64F222ACD4700E5F659 /* 退出登录@2x.png */,
+				D964A652222ACD4800E5F659 /* 我的申请@2x.png */,
+				D964A654222ACD4800E5F659 /* 我的收藏@2x.png */,
+				D964A651222ACD4700E5F659 /* 学习档案@2x.png */,
+			);
+			path = XYMine;
+			sourceTree = "<group>";
+		};
+		D964A660222AEA2B00E5F659 /* XYTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				D994A6C321E8FA340084E0FA /* tb_home_s@2x.png */,
+				D994A6BF21E8F6BA0084E0FA /* tb_home@2x.png */,
+				4EAE4D482222C51C00609DEE /* tb_message_s@2x.png */,
+				4EAE4D492222C51C00609DEE /* tb_message@2x.png */,
+				4EAE4D462222C4DA00609DEE /* tb_find_s@2x.png */,
+				4EAE4D422222C4B300609DEE /* tb_find@2x.png */,
+				4EAE4D3E2222C3F600609DEE /* tb_mine@2x.png */,
+				4EAE4D402222C47E00609DEE /* tb_mine_s@2x.png */,
+			);
+			path = XYTabBar;
+			sourceTree = "<group>";
+		};
+		D964A661222AEA5A00E5F659 /* XYHome */ = {
+			isa = PBXGroup;
+			children = (
+				D964253722215878008AFDA2 /* dian@2x.png */,
+				D96425322221563C008AFDA2 /* weijiaofei@2x.png */,
+				D964251C22214B76008AFDA2 /* zy_dangfei@2x.png */,
+				D964251E22214B77008AFDA2 /* zy_dangzhang@2x.png */,
+				D964251D22214B77008AFDA2 /* zy_fazhan@2x.png */,
+				D964252022214B77008AFDA2 /* zy_gonggao@2x.png */,
+				D964251F22214B77008AFDA2 /* zy_huiyi@2x.png */,
+				D964252222214B77008AFDA2 /* zy_gengduo@2x.png */,
+				D964251B22214B76008AFDA2 /* zy_kaoshi@2x.png */,
+				D964252122214B77008AFDA2 /* zy_ziliao@2x.png */,
+				D994A6B821E8F1C20084E0FA /* home_news@2x.png */,
+			);
+			path = XYHome;
+			sourceTree = "<group>";
+		};
 		D967FF5C21DC8C2E00A8DB00 /* XYHomeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -855,25 +943,9 @@
 		D994A6B621E8F12C0084E0FA /* XYImage */ = {
 			isa = PBXGroup;
 			children = (
-				D964253722215878008AFDA2 /* dian@2x.png */,
-				D96425322221563C008AFDA2 /* weijiaofei@2x.png */,
-				D964251C22214B76008AFDA2 /* zy_dangfei@2x.png */,
-				D964251E22214B77008AFDA2 /* zy_dangzhang@2x.png */,
-				D964251D22214B77008AFDA2 /* zy_fazhan@2x.png */,
-				D964252022214B77008AFDA2 /* zy_gonggao@2x.png */,
-				D964251F22214B77008AFDA2 /* zy_huiyi@2x.png */,
-				D964252222214B77008AFDA2 /* zy_gengduo@2x.png */,
-				D964251B22214B76008AFDA2 /* zy_kaoshi@2x.png */,
-				D964252122214B77008AFDA2 /* zy_ziliao@2x.png */,
-				D994A6C321E8FA340084E0FA /* tb_home_s@2x.png */,
-				D994A6BF21E8F6BA0084E0FA /* tb_home@2x.png */,
-				4EAE4D482222C51C00609DEE /* tb_message_s@2x.png */,
-				4EAE4D492222C51C00609DEE /* tb_message@2x.png */,
-				4EAE4D462222C4DA00609DEE /* tb_find_s@2x.png */,
-				4EAE4D422222C4B300609DEE /* tb_find@2x.png */,
-				4EAE4D3E2222C3F600609DEE /* tb_mine@2x.png */,
-				4EAE4D402222C47E00609DEE /* tb_mine_s@2x.png */,
-				D994A6B821E8F1C20084E0FA /* home_news@2x.png */,
+				D964A661222AEA5A00E5F659 /* XYHome */,
+				D964A660222AEA2B00E5F659 /* XYTabBar */,
+				D964A64E222ACD3200E5F659 /* XYMine */,
 			);
 			path = XYImage;
 			sourceTree = "<group>";
@@ -883,6 +955,8 @@
 			children = (
 				D994A6C621E8FB5D0084E0FA /* XYLoginController.h */,
 				D994A6C721E8FB5D0084E0FA /* XYLoginController.m */,
+				D964A666222AF0C800E5F659 /* XYLoginTextField.h */,
+				D964A667222AF0C800E5F659 /* XYLoginTextField.m */,
 			);
 			path = XYLoginController;
 			sourceTree = "<group>";
@@ -1000,6 +1074,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D964252422214B77008AFDA2 /* zy_dangfei@2x.png in Resources */,
+				D964A658222ACD4800E5F659 /* 我的申请@2x.png in Resources */,
+				D964A65A222ACD4800E5F659 /* 我的收藏@2x.png in Resources */,
 				D96425332221563C008AFDA2 /* weijiaofei@2x.png in Resources */,
 				D91F72A321C6A34B0035095D /* Info.plist in Resources */,
 				4EAE4D4A2222C51C00609DEE /* tb_message_s@2x.png in Resources */,
@@ -1009,19 +1085,26 @@
 				D9516B3E21C68572002295AC /* LaunchScreen.storyboard in Resources */,
 				D964252722214B77008AFDA2 /* zy_huiyi@2x.png in Resources */,
 				D964252522214B77008AFDA2 /* zy_fazhan@2x.png in Resources */,
+				D964A655222ACD4800E5F659 /* 退出登录@2x.png in Resources */,
 				D91F72D821C6A39A0035095D /* Info.plist in Resources */,
 				D964252A22214B77008AFDA2 /* zy_gengduo@2x.png in Resources */,
+				D964A645222AC44500E5F659 /* dl_zhanghao@2x.png in Resources */,
 				D994A6C421E8FA350084E0FA /* tb_home_s@2x.png in Resources */,
+				D964A657222ACD4800E5F659 /* 学习档案@2x.png in Resources */,
 				4EAE4D472222C4DA00609DEE /* tb_find_s@2x.png in Resources */,
 				D964253822215878008AFDA2 /* dian@2x.png in Resources */,
 				D9516B3B21C68572002295AC /* Assets.xcassets in Resources */,
 				D964252822214B77008AFDA2 /* zy_gonggao@2x.png in Resources */,
+				D964A659222ACD4800E5F659 /* 版本更新@2x.png in Resources */,
 				4EAE4D3F2222C3F700609DEE /* tb_mine@2x.png in Resources */,
 				D964252322214B77008AFDA2 /* zy_kaoshi@2x.png in Resources */,
 				4EAE4D412222C47E00609DEE /* tb_mine_s@2x.png in Resources */,
 				D964252922214B77008AFDA2 /* zy_ziliao@2x.png in Resources */,
 				4EAE4D442222C4B300609DEE /* tb_find@2x.png in Resources */,
+				D964A665222AEB5500E5F659 /* cha@2x.png in Resources */,
 				D964252622214B77008AFDA2 /* zy_dangzhang@2x.png in Resources */,
+				D964A646222AC44500E5F659 /* dl_mima@2x.png in Resources */,
+				D964A65C222ACE8500E5F659 /* 消息通知@2x.png in Resources */,
 				D9516B3921C6856B002295AC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1106,12 +1189,15 @@
 				D91F730521C6A63E0035095D /* XYBaseTableViewCell.m in Sources */,
 				D91F72AB21C6A34B0035095D /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				D9642546222174CD008AFDA2 /* XYHomeNewsCell.m in Sources */,
+				D964A65F222AD58900E5F659 /* XYMineHeaderView.m in Sources */,
 				D964251A22214134008AFDA2 /* XYHomeCollectionViewCell.m in Sources */,
 				D9388E6021C7CB1200715BC7 /* UIView+Position.m in Sources */,
 				D9642536222156D1008AFDA2 /* XYPaymentCell.m in Sources */,
 				4EAE4D2F2222B71800609DEE /* XYRegulationCell.m in Sources */,
 				D91F727F21C6A3300035095D /* SDWebImagePrefetcher.m in Sources */,
+				D964A64A222AC9CC00E5F659 /* XYMineTableView.m in Sources */,
 				D91F72D921C6A39A0035095D /* JSONModel.m in Sources */,
+				D964A668222AF0C800E5F659 /* XYLoginTextField.m in Sources */,
 				D964253D2221637A008AFDA2 /* XYPaymentDetailController.m in Sources */,
 				D91F72AC21C6A34B0035095D /* View+MASAdditions.m in Sources */,
 				D967FF6021DC8C7100A8DB00 /* XYHomeTableView.m in Sources */,
@@ -1312,7 +1398,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y8XA2QH338;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/jaycehan/Desktop/智慧党建/智慧党建/XYSupport/XYPrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/智慧党建/XYSupport/XYPrefixHeader.pch";
 				INFOPLIST_FILE = "智慧党建/XYSupport/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1332,7 +1418,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y8XA2QH338;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/jaycehan/Desktop/智慧党建/智慧党建/XYSupport/XYPrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/智慧党建/XYSupport/XYPrefixHeader.pch";
 				INFOPLIST_FILE = "智慧党建/XYSupport/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -7,8 +7,11 @@
 //
 
 #import "XYMineViewController.h"
+#import "XYMineTableView.h"
 
 @interface XYMineViewController ()
+
+@property (nonatomic, strong) XYMineTableView * tableView;
 
 @end
 
@@ -16,6 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView = [[XYMineTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    [self.view addSubview:self.tableView];
     // Do any additional setup after loading the view.
 }
 
