@@ -28,5 +28,6 @@
 
 - (void)setOriginX:(CGFloat)originx;
 
+- (UIViewController*)viewController;
 
 @end

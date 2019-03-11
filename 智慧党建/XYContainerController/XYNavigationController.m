@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationBar setBackgroundImage:[XYUtils imageWithColor:[UIColor redColor]] forBarMetrics:UIBarMetricsDefault];
+    self.navigationBar.barStyle = UIStatusBarStyleLightContent;
+    [self setNeedsStatusBarAppearanceUpdate];
     // Do any additional setup after loading the view.
 }
 

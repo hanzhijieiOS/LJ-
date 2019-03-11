@@ -21,16 +21,8 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    self.imageView.frame = CGRectMake(1, 1, self.height - 2, self.height - 2);
-    self.textField.frame = CGRectMake(self.imageView.left + 2, 1, self.width - self.imageView.right - 3, self.height - 2);
-    UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(22, 22)];
-    path.lineWidth = 1;
-    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    maskLayer.path = path.CGPath;
-    maskLayer.strokeColor = [UIColor redColor].CGColor;
-    maskLayer.fillColor = [UIColor yellowColor].CGColor;
-    self.layer.mask = maskLayer;
-    self.layer.masksToBounds = YES;
+    self.textField.frame = CGRectMake(1, 1, self.width - 2, self.height - 2);
+    self.imageView.frame = CGRectMake(1, 5, self.textField.height - 10, self.textField.height - 10);
 }
 
 - (UITextField *)textField{
@@ -38,13 +30,20 @@
         _textField = [[UITextField alloc] init];
         _textField.font = [UIFont systemFontOfSize:16];
         [_textField setTintColor:[UIColor orangeColor]];
+        _textField.layer.cornerRadius = 5;
+        _textField.layer.masksToBounds = YES;
+        _textField.backgroundColor = [UIColor colorWithRed:245 / 255.0 green:245 / 255.0 blue:245 / 255.0 alpha:1];
+        _textField.leftView = self.imageView;
+        _textField.leftViewMode = UITextFieldViewModeAlways;
+        _textField.returnKeyType = UIReturnKeyDone;
     }
     return _textField;
 }
 
 - (UIImageView *)imageView{
     if (!_imageView) {
-        _imageView = [[UIImageView alloc] init];
+        _imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        _imageView.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _imageView;
 }

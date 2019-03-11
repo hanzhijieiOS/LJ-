@@ -21,6 +21,8 @@
 #import "XYLibDefine.h"
 #import "XYMacroDefine.h"
 #import "UIView+Position.h"
+#import "MBProgressHUD.h"
+#import "AppHelper.h"
 
 #define K_LeftGap 12
 

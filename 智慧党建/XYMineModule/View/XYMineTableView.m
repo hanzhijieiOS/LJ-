@@ -87,6 +87,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self deselectRowAtIndexPath:indexPath animated:YES];
     NSString * URLStr = @"XYMine://Mine/XYLoginController?Scheme=1";
     NSString * URLS = [URLStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSURL * URL = [NSURL URLWithString:URLS];
