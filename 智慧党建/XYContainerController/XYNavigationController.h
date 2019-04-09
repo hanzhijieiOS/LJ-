@@ -10,4 +10,6 @@
 
 @interface XYNavigationController : UINavigationController
 
+- (void)configNavigationBar;
+
 @end

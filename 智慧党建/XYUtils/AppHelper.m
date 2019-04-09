@@ -28,4 +28,21 @@
     [hub hideAnimated:YES afterDelay:1.6];
 }
 
++ (void)ShowHUDPrompt:(NSString *)promptText{
+    UIView * view = [XYUtils getTopViewController].view;
+    MBProgressHUD * hub = [[MBProgressHUD alloc] init];
+    [view addSubview:hub];
+    hub.mode = MBProgressHUDModeText;
+    hub.label.text = promptText;
+    hub.backgroundColor = [UIColor clearColor];
+    hub.label.textColor = [UIColor whiteColor];
+    hub.bezelView.color = [UIColor blackColor];
+    hub.opaque = 1;
+    [hub showAnimated:YES];
+}
+
++ (void)DismissHUDPromptWithText:(NSString *)promptText{
+    
+}
+
 @end

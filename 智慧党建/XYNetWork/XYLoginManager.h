@@ -20,13 +20,13 @@ typedef void(^XYLoginBlock)(XYLoginModel * model);
 
 @interface XYLoginManager : NSObject
 
-- (id)sharedManager;
++ (id)sharedManager;
 
 - (instancetype)init __attribute__((unavailable("Should use sharedManager")));
 
-+ (void)loginWithTel:(NSString *)tel Password:(NSString *)password succeedBlock:(XYLoginBlock)succeedBlock failureBlock:(errorBlock)errorBlock;
+- (void)loginWithTel:(NSString *)tel Password:(NSString *)password succeedBlock:(XYLoginBlock)succeedBlock failureBlock:(errorBlock)errorBlock;
 
-+ (void)registerWithTel:(NSString *)tel Password:(NSString *)password Email:(NSString *)email Name:(NSString *)name Birthday:(NSString *)birthday Sex:(NSString *)sex succeed:(XYRegisterBlock)succeedBlock failureBlock:(errorBlock)errorBlock;
+- (void)registerWithTel:(NSString *)tel Password:(NSString *)password Email:(NSString * __nullable)email Name:(NSString *)name Birthday:(NSString * __nullable)birthday Sex:(NSString * __nullable)sex succeed:(XYRegisterBlock)succeedBlock failureBlock:(errorBlock)errorBlock;
 
 @end
 

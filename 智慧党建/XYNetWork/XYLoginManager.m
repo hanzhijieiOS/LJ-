@@ -12,7 +12,7 @@
 
 static XYLoginManager * instance = nil;
 
-- (id)sharedManager{
++ (id)sharedManager{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (!instance) {
@@ -22,7 +22,7 @@ static XYLoginManager * instance = nil;
     return instance;
 }
 
-+ (void)loginWithTel:(NSString *)tel Password:(NSString *)password succeedBlock:(XYLoginBlock)succeedBlock failureBlock:(errorBlock)errorBlock{
+- (void)loginWithTel:(NSString *)tel Password:(NSString *)password succeedBlock:(XYLoginBlock)succeedBlock failureBlock:(errorBlock)errorBlock{
     NSString * URLStr = [NSString stringWithFormat:@"http://120.79.14.244/userCenter/login?tel=%@&password=%@",tel,password];
     AFHTTPSessionManager * mng = [AFHTTPSessionManager manager];
     mng.requestSerializer.timeoutInterval = 30.f;
@@ -48,7 +48,7 @@ static XYLoginManager * instance = nil;
     }];
 }
 
-+ (void)registerWithTel:(NSString *)tel Password:(NSString *)password Email:(NSString *)email Name:(NSString *)name Birthday:(NSString *)birthday Sex:(NSString *)sex succeed:(XYRegisterBlock)succeedBlock failureBlock:(errorBlock)errorBlock{
+- (void)registerWithTel:(NSString *)tel Password:(NSString *)password Email:(NSString *)email Name:(NSString *)name Birthday:(NSString *)birthday Sex:(NSString *)sex succeed:(XYRegisterBlock)succeedBlock failureBlock:(errorBlock)errorBlock{
     NSString * URL = [NSString stringWithFormat:@"http://120.79.14.244/userCenter/register?tel=%@&password=%@&permission=0&email=%@&name=%@&birthday=%@&sex=%@",tel, password, email, name, birthday, sex];
     [[AFHTTPSessionManager manager] GET:URL parameters:nil headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         

@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AppHelper : NSObject
 + (void)ShowHUDPrompt:(NSString *)promptText withParentViewController:(nullable UIViewController *)parentViewController;
+
++ (void)ShowHUDPrompt:(NSString *)promptText;
+
++ (void)DismissHUDPromptWithText:(NSString *)promptText;
+
 @end
 
 NS_ASSUME_NONNULL_END

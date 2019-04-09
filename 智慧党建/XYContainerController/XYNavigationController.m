@@ -10,6 +10,8 @@
 
 @interface XYNavigationController ()
 
+@property (nonatomic, strong) UIButton * backButton;
+
 @end
 
 @implementation XYNavigationController
@@ -27,6 +29,25 @@
         viewController.hidesBottomBarWhenPushed = YES;
     }
     [super pushViewController:viewController animated:animated];
+}
+
+- (void)configNavigationBar{
+    [self.navigationBar setBackgroundImage:[XYUtils imageWithColor:[UIColor whiteColor]] forBarMetrics:UIBarMetricsDefault];
+    self.navigationBar.barStyle = UIStatusBarStyleDefault;
+    self.backButton = [[UIButton alloc] initWithFrame:CGRectMake(12, (self.navigationBar.height - 25) / 2.0, 25, 25)];
+    self.backButton.backgroundColor = [UIColor clearColor];
+    [self.backButton setImage:[UIImage imageNamed:@"cha.png"] forState:UIControlStateNormal];
+    [self.navigationBar addSubview:self.backButton];
+    [self.backButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)dismiss{
+    if (self.viewControllers.count > 1) {
+        [self popViewControllerAnimated:YES];
+    }else if(self.viewControllers.count == 1){
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else{
+    }
 }
 
 - (void)didReceiveMemoryWarning {

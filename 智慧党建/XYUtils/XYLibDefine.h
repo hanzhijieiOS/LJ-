@@ -18,7 +18,7 @@
 typedef NS_ENUM(NSUInteger, XYSwitchScheme) {
     XYSwitchPush = 0,
     XYSwitchPresent,
-    XYSwitchUnknow
+    XYSwitchPushUseCurrentNVC
 };
 
 #endif /* XYLibDefine_h */

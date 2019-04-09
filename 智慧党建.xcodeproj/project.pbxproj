@@ -28,6 +28,7 @@
 		4EAE4D472222C4DA00609DEE /* tb_find_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EAE4D462222C4DA00609DEE /* tb_find_s@2x.png */; };
 		4EAE4D4A2222C51C00609DEE /* tb_message_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EAE4D482222C51C00609DEE /* tb_message_s@2x.png */; };
 		4EAE4D4B2222C51C00609DEE /* tb_message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EAE4D492222C51C00609DEE /* tb_message@2x.png */; };
+		4EB6F553225CB78F00072CA5 /* XYRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB6F552225CB78F00072CA5 /* XYRegisterView.m */; };
 		D91F71D221C6A2880035095D /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D91F71C621C6A2880035095D /* AFHTTPSessionManager.m */; };
 		D91F71D321C6A2880035095D /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D91F71C921C6A2880035095D /* AFNetworkReachabilityManager.m */; };
 		D91F71D421C6A2880035095D /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = D91F71CB21C6A2880035095D /* AFSecurityPolicy.m */; };
@@ -198,6 +199,8 @@
 		4EAE4D462222C4DA00609DEE /* tb_find_s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tb_find_s@2x.png"; sourceTree = "<group>"; };
 		4EAE4D482222C51C00609DEE /* tb_message_s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tb_message_s@2x.png"; sourceTree = "<group>"; };
 		4EAE4D492222C51C00609DEE /* tb_message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tb_message@2x.png"; sourceTree = "<group>"; };
+		4EB6F551225CB78F00072CA5 /* XYRegisterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYRegisterView.h; sourceTree = "<group>"; };
+		4EB6F552225CB78F00072CA5 /* XYRegisterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYRegisterView.m; sourceTree = "<group>"; };
 		D91F71C421C6A2880035095D /* AFCompatibilityMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFCompatibilityMacros.h; sourceTree = "<group>"; };
 		D91F71C521C6A2880035095D /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		D91F71C621C6A2880035095D /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
@@ -492,8 +495,8 @@
 		4E2149CA2235283D0068F553 /* XYRegister */ = {
 			isa = PBXGroup;
 			children = (
-				4E2149CB2235286F0068F553 /* XYRegisterController.h */,
-				4E2149CC2235286F0068F553 /* XYRegisterController.m */,
+				4EB6F54F225CB75900072CA5 /* Controller */,
+				4EB6F550225CB76600072CA5 /* View */,
 			);
 			path = XYRegister;
 			sourceTree = "<group>";
@@ -511,6 +514,24 @@
 				4EAE4D2E2222B71800609DEE /* XYRegulationCell.m */,
 			);
 			path = XYRegulation;
+			sourceTree = "<group>";
+		};
+		4EB6F54F225CB75900072CA5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4E2149CB2235286F0068F553 /* XYRegisterController.h */,
+				4E2149CC2235286F0068F553 /* XYRegisterController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4EB6F550225CB76600072CA5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4EB6F551225CB78F00072CA5 /* XYRegisterView.h */,
+				4EB6F552225CB78F00072CA5 /* XYRegisterView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D91F71C321C6A2880035095D /* AFNetworking */ = {
@@ -1270,6 +1291,7 @@
 				4E2149C8223515D20068F553 /* XYRegisterModel.m in Sources */,
 				D91F72DC21C6A39A0035095D /* JSONAPI.m in Sources */,
 				D994A6C821E8FB5D0084E0FA /* XYLoginController.m in Sources */,
+				4EB6F553225CB78F00072CA5 /* XYRegisterView.m in Sources */,
 				4EAE4D292222968E00609DEE /* XYRegulationTopView.m in Sources */,
 				D91F728021C6A3300035095D /* UIButton+WebCache.m in Sources */,
 				D91F72DD21C6A39A0035095D /* JSONHTTPClient.m in Sources */,

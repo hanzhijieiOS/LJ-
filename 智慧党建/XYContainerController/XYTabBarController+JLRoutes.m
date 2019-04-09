@@ -86,9 +86,20 @@
         if (scheme == XYSwitchPush) {
             [navigation pushViewController:nextVC animated:YES];
         }else if(scheme == XYSwitchPresent){
-            [[XYUtils getTopViewController] presentViewController:nextVC animated:YES completion:nil];
+            if (!nextVC.navigationController) {
+                XYNavigationController * naviVC = [[XYNavigationController alloc] initWithRootViewController:nextVC];
+                [naviVC configNavigationBar];
+                [[XYUtils getTopViewController] presentViewController:naviVC animated:YES completion:nil];
+            }else{
+                [[XYUtils getTopViewController] presentViewController:nextVC.navigationController animated:YES completion:nil];
+            }
         }else{
-            
+            if (![XYUtils getTopViewController].navigationController) {
+                XYNavigationController * naviVC = [[XYNavigationController alloc] initWithRootViewController:[XYUtils getTopViewController]];
+                [naviVC pushViewController:nextVC animated:YES];
+            }else{
+                [[XYUtils getTopViewController].navigationController pushViewController:nextVC animated:YES];
+            }
         }
         self.selectedIndex = 3;
         return YES;
