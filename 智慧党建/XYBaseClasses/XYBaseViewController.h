@@ -10,4 +10,12 @@
 
 @interface XYBaseViewController : UIViewController
 
+- (void)showLoadingAnimation;
+
+- (void)stopLoadingAnimation;
+
+- (void)showEmpty;
+
+- (void)reloadData;
+
 @end

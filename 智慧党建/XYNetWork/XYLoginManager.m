@@ -50,7 +50,9 @@ static XYLoginManager * instance = nil;
 
 - (void)registerWithTel:(NSString *)tel Password:(NSString *)password Email:(NSString *)email Name:(NSString *)name Birthday:(NSString *)birthday Sex:(NSString *)sex succeed:(XYRegisterBlock)succeedBlock failureBlock:(errorBlock)errorBlock{
     NSString * URL = [NSString stringWithFormat:@"http://120.79.14.244/userCenter/register?tel=%@&password=%@&permission=0&email=%@&name=%@&birthday=%@&sex=%@",tel, password, email, name, birthday, sex];
-    [[AFHTTPSessionManager manager] GET:URL parameters:nil headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    NSString * URLString = [NSString stringWithFormat:@"http://120.79.14.244/userCenter/register?tel=%@&password=%@&permission=0&name=%@",tel, password, name];
+
+    [[AFHTTPSessionManager manager] GET:URLString parameters:nil headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (responseObject) {

@@ -469,6 +469,8 @@
 
 + (UIViewController *)getTopViewController;
 
++ (BOOL)isiPhoneX;
+
 @end
 
 

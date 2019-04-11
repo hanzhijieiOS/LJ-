@@ -62,8 +62,9 @@
         self.ruleButton.enabled = YES;
         [self.ruleButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
         [self.ruleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        
-        
+        if ([self.delegate respondsToSelector:@selector(regulationTopViewDidSelectWithIndex:)]) {
+            [self.delegate regulationTopViewDidSelectWithIndex:0];
+        }
     }else{
         self.chapterButton.enabled = YES;
         [self.chapterButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
@@ -71,15 +72,10 @@
         self.ruleButton.enabled = NO;
         [self.ruleButton.titleLabel setFont:[UIFont systemFontOfSize:19]];
         [self.ruleButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        if ([self.delegate respondsToSelector:@selector(regulationTopViewDidSelectWithIndex:)]) {
+            [self.delegate regulationTopViewDidSelectWithIndex:1];
+        }
     }
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

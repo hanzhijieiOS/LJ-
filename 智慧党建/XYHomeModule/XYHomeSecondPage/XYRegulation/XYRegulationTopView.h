@@ -10,7 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol  XYRegulationTopViewDelegate<NSObject>
+
+- (void)regulationTopViewDidSelectWithIndex:(NSInteger)index;
+
+@end
+
 @interface XYRegulationTopView : UIView
+
+@property (nonatomic, weak) id<XYRegulationTopViewDelegate> delegate;
 
 @end
 

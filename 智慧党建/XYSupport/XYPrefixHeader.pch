@@ -26,6 +26,20 @@
 
 #define K_LeftGap 12
 
+#define kSafeAreaBottomPaddingHeight ([XYUtils isiPhoneX] ? 34 : 0)
+
+#define HEIGHT_NAVIGATIONBAR (44.0)
+
+#define HEIGHT_STATUSBAR ([XYUtils isiPhoneX] ? 44.0 : 20.0)
+
+#define HEIGHT_NAVIGATIONBAR_AND_STATUSBAR (HEIGHT_NAVIGATIONBAR + HEIGHT_STATUSBAR)
+
+#define HEIGHT_TABBAR_SYSTEM (IPHONEX?83.0:49.0)
+
+#pragma mark - 登陆相关字段
+
+#define XYUserLoginStatus @"XYUserLoginStatus"
+
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 

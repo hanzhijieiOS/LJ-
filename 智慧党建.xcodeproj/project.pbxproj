@@ -18,6 +18,20 @@
 		4E2149C5223515AE0068F553 /* XYLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2149C4223515AE0068F553 /* XYLoginModel.m */; };
 		4E2149C8223515D20068F553 /* XYRegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2149C7223515D20068F553 /* XYRegisterModel.m */; };
 		4E2149CD2235286F0068F553 /* XYRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2149CC2235286F0068F553 /* XYRegisterController.m */; };
+		4E5DB6EA225DCFE900C5C85A /* XYPayChannelTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5DB6E9225DCFE900C5C85A /* XYPayChannelTableView.m */; };
+		4E5DB6ED225DD01100C5C85A /* XYPayChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5DB6EC225DD01100C5C85A /* XYPayChannelCell.m */; };
+		4E5DB6F1225DD47100C5C85A /* home_pay_deselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5DB6EF225DD47000C5C85A /* home_pay_deselect.png */; };
+		4E5DB6F2225DD47100C5C85A /* home_pay_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5DB6F0225DD47100C5C85A /* home_pay_select.png */; };
+		4E5DB6F5225DD93F00C5C85A /* XYPaymentDetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5DB6F4225DD93F00C5C85A /* XYPaymentDetailBottomView.m */; };
+		4E5DB6F8225DEF5600C5C85A /* zhifubao.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5DB6F6225DEF5500C5C85A /* zhifubao.png */; };
+		4E5DB6F9225DEF5600C5C85A /* weixinzhifu.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5DB6F7225DEF5600C5C85A /* weixinzhifu.png */; };
+		4E5DB6FF225E051300C5C85A /* XYAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5DB6FE225E051300C5C85A /* XYAnimationView.m */; };
+		4E5DB703225E106900C5C85A /* empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5DB702225E106900C5C85A /* empty.png */; };
+		4E5DB707225E16D300C5C85A /* XYUserLoginMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5DB706225E16D300C5C85A /* XYUserLoginMgr.m */; };
+		4E5DB70B225F2BA300C5C85A /* XYRegulationDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5DB70A225F2BA300C5C85A /* XYRegulationDetailController.m */; };
+		4E5DB70F225F39EA00C5C85A /* XYRegulationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5DB70E225F39EA00C5C85A /* XYRegulationModel.m */; };
+		4E5DB712225F41CF00C5C85A /* XYRegulationCell_V2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5DB711225F41CF00C5C85A /* XYRegulationCell_V2.m */; };
+		4E5DB715225F470900C5C85A /* dangzhang.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5DB714225F470900C5C85A /* dangzhang.png */; };
 		4EAE4D262222945700609DEE /* XYRegulationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE4D252222945700609DEE /* XYRegulationController.m */; };
 		4EAE4D292222968E00609DEE /* XYRegulationTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE4D282222968E00609DEE /* XYRegulationTopView.m */; };
 		4EAE4D2C2222B6A900609DEE /* XYRegulationTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE4D2B2222B6A900609DEE /* XYRegulationTableView.m */; };
@@ -185,6 +199,28 @@
 		4E2149C7223515D20068F553 /* XYRegisterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYRegisterModel.m; sourceTree = "<group>"; };
 		4E2149CB2235286F0068F553 /* XYRegisterController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYRegisterController.h; sourceTree = "<group>"; };
 		4E2149CC2235286F0068F553 /* XYRegisterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYRegisterController.m; sourceTree = "<group>"; };
+		4E5DB6E8225DCFE900C5C85A /* XYPayChannelTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYPayChannelTableView.h; sourceTree = "<group>"; };
+		4E5DB6E9225DCFE900C5C85A /* XYPayChannelTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYPayChannelTableView.m; sourceTree = "<group>"; };
+		4E5DB6EB225DD01100C5C85A /* XYPayChannelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYPayChannelCell.h; sourceTree = "<group>"; };
+		4E5DB6EC225DD01100C5C85A /* XYPayChannelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYPayChannelCell.m; sourceTree = "<group>"; };
+		4E5DB6EF225DD47000C5C85A /* home_pay_deselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_pay_deselect.png; sourceTree = "<group>"; };
+		4E5DB6F0225DD47100C5C85A /* home_pay_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_pay_select.png; sourceTree = "<group>"; };
+		4E5DB6F3225DD93F00C5C85A /* XYPaymentDetailBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYPaymentDetailBottomView.h; sourceTree = "<group>"; };
+		4E5DB6F4225DD93F00C5C85A /* XYPaymentDetailBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYPaymentDetailBottomView.m; sourceTree = "<group>"; };
+		4E5DB6F6225DEF5500C5C85A /* zhifubao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zhifubao.png; sourceTree = "<group>"; };
+		4E5DB6F7225DEF5600C5C85A /* weixinzhifu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weixinzhifu.png; sourceTree = "<group>"; };
+		4E5DB6FD225E051300C5C85A /* XYAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYAnimationView.h; sourceTree = "<group>"; };
+		4E5DB6FE225E051300C5C85A /* XYAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYAnimationView.m; sourceTree = "<group>"; };
+		4E5DB702225E106900C5C85A /* empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty.png; sourceTree = "<group>"; };
+		4E5DB705225E16D300C5C85A /* XYUserLoginMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYUserLoginMgr.h; sourceTree = "<group>"; };
+		4E5DB706225E16D300C5C85A /* XYUserLoginMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYUserLoginMgr.m; sourceTree = "<group>"; };
+		4E5DB709225F2BA300C5C85A /* XYRegulationDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYRegulationDetailController.h; sourceTree = "<group>"; };
+		4E5DB70A225F2BA300C5C85A /* XYRegulationDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYRegulationDetailController.m; sourceTree = "<group>"; };
+		4E5DB70D225F39EA00C5C85A /* XYRegulationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYRegulationModel.h; sourceTree = "<group>"; };
+		4E5DB70E225F39EA00C5C85A /* XYRegulationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYRegulationModel.m; sourceTree = "<group>"; };
+		4E5DB710225F41CF00C5C85A /* XYRegulationCell_V2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYRegulationCell_V2.h; sourceTree = "<group>"; };
+		4E5DB711225F41CF00C5C85A /* XYRegulationCell_V2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYRegulationCell_V2.m; sourceTree = "<group>"; };
+		4E5DB714225F470900C5C85A /* dangzhang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dangzhang.png; sourceTree = "<group>"; };
 		4EAE4D242222945700609DEE /* XYRegulationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYRegulationController.h; sourceTree = "<group>"; };
 		4EAE4D252222945700609DEE /* XYRegulationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYRegulationController.m; sourceTree = "<group>"; };
 		4EAE4D272222968E00609DEE /* XYRegulationTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYRegulationTopView.h; sourceTree = "<group>"; };
@@ -464,6 +500,7 @@
 		4E2149B822350B6D0068F553 /* XYNetWork */ = {
 			isa = PBXGroup;
 			children = (
+				4E5DB704225E164F00C5C85A /* XYUserLogin */,
 				4E2149B922350B8D0068F553 /* XYRequestManager.h */,
 				4E2149BA22350B8D0068F553 /* XYRequestManager.m */,
 				4E2149BC22350F0F0068F553 /* XYLoginManager.h */,
@@ -501,9 +538,83 @@
 			path = XYRegister;
 			sourceTree = "<group>";
 		};
+		4E5DB6E5225DCF7700C5C85A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D964253B2221637A008AFDA2 /* XYPaymentDetailController.h */,
+				D964253C2221637A008AFDA2 /* XYPaymentDetailController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4E5DB6E6225DCF8300C5C85A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D96425552221917E008AFDA2 /* XYPaymentDetailTopView.h */,
+				D96425562221917E008AFDA2 /* XYPaymentDetailTopView.m */,
+				4E5DB6F3225DD93F00C5C85A /* XYPaymentDetailBottomView.h */,
+				4E5DB6F4225DD93F00C5C85A /* XYPaymentDetailBottomView.m */,
+				4E5DB6E8225DCFE900C5C85A /* XYPayChannelTableView.h */,
+				4E5DB6E9225DCFE900C5C85A /* XYPayChannelTableView.m */,
+				4E5DB6EB225DD01100C5C85A /* XYPayChannelCell.h */,
+				4E5DB6EC225DD01100C5C85A /* XYPayChannelCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4E5DB6EE225DD45D00C5C85A /* pay */ = {
+			isa = PBXGroup;
+			children = (
+				D964253722215878008AFDA2 /* dian@2x.png */,
+				D96425322221563C008AFDA2 /* weijiaofei@2x.png */,
+				4E5DB6F7225DEF5600C5C85A /* weixinzhifu.png */,
+				4E5DB6F6225DEF5500C5C85A /* zhifubao.png */,
+				4E5DB6EF225DD47000C5C85A /* home_pay_deselect.png */,
+				4E5DB6F0225DD47100C5C85A /* home_pay_select.png */,
+			);
+			path = pay;
+			sourceTree = "<group>";
+		};
+		4E5DB704225E164F00C5C85A /* XYUserLogin */ = {
+			isa = PBXGroup;
+			children = (
+				4E5DB705225E16D300C5C85A /* XYUserLoginMgr.h */,
+				4E5DB706225E16D300C5C85A /* XYUserLoginMgr.m */,
+			);
+			path = XYUserLogin;
+			sourceTree = "<group>";
+		};
+		4E5DB708225F2B7300C5C85A /* XYRegulationDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4E5DB709225F2BA300C5C85A /* XYRegulationDetailController.h */,
+				4E5DB70A225F2BA300C5C85A /* XYRegulationDetailController.m */,
+			);
+			path = XYRegulationDetail;
+			sourceTree = "<group>";
+		};
+		4E5DB70C225F39C700C5C85A /* XYRegulationModel */ = {
+			isa = PBXGroup;
+			children = (
+				4E5DB70D225F39EA00C5C85A /* XYRegulationModel.h */,
+				4E5DB70E225F39EA00C5C85A /* XYRegulationModel.m */,
+			);
+			path = XYRegulationModel;
+			sourceTree = "<group>";
+		};
+		4E5DB713225F46D200C5C85A /* regulation */ = {
+			isa = PBXGroup;
+			children = (
+				4E5DB714225F470900C5C85A /* dangzhang.png */,
+			);
+			path = regulation;
+			sourceTree = "<group>";
+		};
 		4EAE4D232222941700609DEE /* XYRegulation */ = {
 			isa = PBXGroup;
 			children = (
+				4E5DB70C225F39C700C5C85A /* XYRegulationModel */,
+				4E5DB708225F2B7300C5C85A /* XYRegulationDetail */,
 				4EAE4D242222945700609DEE /* XYRegulationController.h */,
 				4EAE4D252222945700609DEE /* XYRegulationController.m */,
 				4EAE4D272222968E00609DEE /* XYRegulationTopView.h */,
@@ -512,6 +623,8 @@
 				4EAE4D2B2222B6A900609DEE /* XYRegulationTableView.m */,
 				4EAE4D2D2222B71800609DEE /* XYRegulationCell.h */,
 				4EAE4D2E2222B71800609DEE /* XYRegulationCell.m */,
+				4E5DB710225F41CF00C5C85A /* XYRegulationCell_V2.h */,
+				4E5DB711225F41CF00C5C85A /* XYRegulationCell_V2.m */,
 			);
 			path = XYRegulation;
 			sourceTree = "<group>";
@@ -751,6 +864,8 @@
 				D91F730121C6A62E0035095D /* XYBaseTableView.m */,
 				D91F730321C6A63E0035095D /* XYBaseTableViewCell.h */,
 				D91F730421C6A63E0035095D /* XYBaseTableViewCell.m */,
+				4E5DB6FD225E051300C5C85A /* XYAnimationView.h */,
+				4E5DB6FE225E051300C5C85A /* XYAnimationView.m */,
 			);
 			path = XYBaseClasses;
 			sourceTree = "<group>";
@@ -922,10 +1037,8 @@
 		D964253A22216356008AFDA2 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				D964253B2221637A008AFDA2 /* XYPaymentDetailController.h */,
-				D964253C2221637A008AFDA2 /* XYPaymentDetailController.m */,
-				D96425552221917E008AFDA2 /* XYPaymentDetailTopView.h */,
-				D96425562221917E008AFDA2 /* XYPaymentDetailTopView.m */,
+				4E5DB6E6225DCF8300C5C85A /* View */,
+				4E5DB6E5225DCF7700C5C85A /* Controller */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -976,8 +1089,8 @@
 		D964A661222AEA5A00E5F659 /* XYHome */ = {
 			isa = PBXGroup;
 			children = (
-				D964253722215878008AFDA2 /* dian@2x.png */,
-				D96425322221563C008AFDA2 /* weijiaofei@2x.png */,
+				4E5DB713225F46D200C5C85A /* regulation */,
+				4E5DB6EE225DD45D00C5C85A /* pay */,
 				D964251C22214B76008AFDA2 /* zy_dangfei@2x.png */,
 				D964251E22214B77008AFDA2 /* zy_dangzhang@2x.png */,
 				D964251D22214B77008AFDA2 /* zy_fazhan@2x.png */,
@@ -1049,6 +1162,7 @@
 		D994A6B621E8F12C0084E0FA /* XYImage */ = {
 			isa = PBXGroup;
 			children = (
+				4E5DB702225E106900C5C85A /* empty.png */,
 				D964A661222AEA5A00E5F659 /* XYHome */,
 				D964A660222AEA2B00E5F659 /* XYTabBar */,
 				D964A64E222ACD3200E5F659 /* XYMine */,
@@ -1181,6 +1295,7 @@
 			files = (
 				D964252422214B77008AFDA2 /* zy_dangfei@2x.png in Resources */,
 				D964A658222ACD4800E5F659 /* 我的申请@2x.png in Resources */,
+				4E5DB6F8225DEF5600C5C85A /* zhifubao.png in Resources */,
 				D964A65A222ACD4800E5F659 /* 我的收藏@2x.png in Resources */,
 				D96425332221563C008AFDA2 /* weijiaofei@2x.png in Resources */,
 				D91F72A321C6A34B0035095D /* Info.plist in Resources */,
@@ -1188,10 +1303,12 @@
 				D994A6C021E8F6BB0084E0FA /* tb_home@2x.png in Resources */,
 				4EAE4D4B2222C51C00609DEE /* tb_message@2x.png in Resources */,
 				4E2149AB2234F2A90068F553 /* dl_mima@2x.png in Resources */,
+				4E5DB715225F470900C5C85A /* dangzhang.png in Resources */,
 				D994A6BB21E8F1C30084E0FA /* home_news@2x.png in Resources */,
 				D9516B3E21C68572002295AC /* LaunchScreen.storyboard in Resources */,
 				D964252722214B77008AFDA2 /* zy_huiyi@2x.png in Resources */,
 				D964252522214B77008AFDA2 /* zy_fazhan@2x.png in Resources */,
+				4E5DB703225E106900C5C85A /* empty.png in Resources */,
 				D964A655222ACD4800E5F659 /* 退出登录@2x.png in Resources */,
 				4E2149AD2234F3D90068F553 /* dl_zhanghao@2x.png in Resources */,
 				D91F72D821C6A39A0035095D /* Info.plist in Resources */,
@@ -1204,15 +1321,18 @@
 				D9516B3B21C68572002295AC /* Assets.xcassets in Resources */,
 				D964252822214B77008AFDA2 /* zy_gonggao@2x.png in Resources */,
 				D964A659222ACD4800E5F659 /* 版本更新@2x.png in Resources */,
+				4E5DB6F9225DEF5600C5C85A /* weixinzhifu.png in Resources */,
 				4EAE4D3F2222C3F700609DEE /* tb_mine@2x.png in Resources */,
 				D964252322214B77008AFDA2 /* zy_kaoshi@2x.png in Resources */,
 				4EAE4D412222C47E00609DEE /* tb_mine_s@2x.png in Resources */,
 				D964252922214B77008AFDA2 /* zy_ziliao@2x.png in Resources */,
 				4EAE4D442222C4B300609DEE /* tb_find@2x.png in Resources */,
 				D964A665222AEB5500E5F659 /* cha@2x.png in Resources */,
+				4E5DB6F1225DD47100C5C85A /* home_pay_deselect.png in Resources */,
 				D964252622214B77008AFDA2 /* zy_dangzhang@2x.png in Resources */,
 				D964A65C222ACE8500E5F659 /* 消息通知@2x.png in Resources */,
 				D9516B3921C6856B002295AC /* Main.storyboard in Resources */,
+				4E5DB6F2225DD47100C5C85A /* home_pay_select.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1267,9 +1387,11 @@
 				D9516B4121C68572002295AC /* main.m in Sources */,
 				D91F727C21C6A3300035095D /* SDWebImageDownloader.m in Sources */,
 				D9A6312E221DA177004767DE /* XYChatTableViewCell.m in Sources */,
+				4E5DB70F225F39EA00C5C85A /* XYRegulationModel.m in Sources */,
 				D91F727621C6A3300035095D /* NSData+ImageContentType.m in Sources */,
 				D967FFC921DCBAD600A8DB00 /* XYTabBar.m in Sources */,
 				D91F727921C6A3300035095D /* SDImageCacheConfig.m in Sources */,
+				4E5DB6ED225DD01100C5C85A /* XYPayChannelCell.m in Sources */,
 				D91F72DF21C6A39A0035095D /* JSONKeyMapper.m in Sources */,
 				4E2149BB22350B8D0068F553 /* XYRequestManager.m in Sources */,
 				4E2149C22235155B0068F553 /* XYBaseModel.m in Sources */,
@@ -1279,6 +1401,7 @@
 				D91F72A421C6A34B0035095D /* MASCompositeConstraint.m in Sources */,
 				D91F71D321C6A2880035095D /* AFNetworkReachabilityManager.m in Sources */,
 				D967FFBE21DC91B300A8DB00 /* SDCollectionViewCell.m in Sources */,
+				4E5DB70B225F2BA300C5C85A /* XYRegulationDetailController.m in Sources */,
 				D91F727821C6A3300035095D /* SDImageCache.m in Sources */,
 				D967FFBF21DC91B300A8DB00 /* SDCycleScrollView.m in Sources */,
 				D91F72A721C6A34B0035095D /* MASLayoutConstraint.m in Sources */,
@@ -1294,12 +1417,15 @@
 				4EB6F553225CB78F00072CA5 /* XYRegisterView.m in Sources */,
 				4EAE4D292222968E00609DEE /* XYRegulationTopView.m in Sources */,
 				D91F728021C6A3300035095D /* UIButton+WebCache.m in Sources */,
+				4E5DB6F5225DD93F00C5C85A /* XYPaymentDetailBottomView.m in Sources */,
 				D91F72DD21C6A39A0035095D /* JSONHTTPClient.m in Sources */,
+				4E5DB6EA225DCFE900C5C85A /* XYPayChannelTableView.m in Sources */,
 				D91F72FB21C6A5A40035095D /* XYNavigationController.m in Sources */,
 				D91F730221C6A62E0035095D /* XYBaseTableView.m in Sources */,
 				D91F71D521C6A2880035095D /* AFURLRequestSerialization.m in Sources */,
 				4E2149C5223515AE0068F553 /* XYLoginModel.m in Sources */,
 				D9388E4121C7B40D00715BC7 /* XYMineViewController.m in Sources */,
+				4E5DB712225F41CF00C5C85A /* XYRegulationCell_V2.m in Sources */,
 				D91F730521C6A63E0035095D /* XYBaseTableViewCell.m in Sources */,
 				D91F72AB21C6A34B0035095D /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				D9642546222174CD008AFDA2 /* XYHomeNewsCell.m in Sources */,
@@ -1319,12 +1445,14 @@
 				D91F727B21C6A3300035095D /* SDWebImageDecoder.m in Sources */,
 				D91F71D621C6A2880035095D /* AFURLResponseSerialization.m in Sources */,
 				D91F727A21C6A3300035095D /* SDWebImageCompat.m in Sources */,
+				4E5DB707225E16D300C5C85A /* XYUserLoginMgr.m in Sources */,
 				D91F727521C6A3300035095D /* MKAnnotationView+WebCache.m in Sources */,
 				D91F72F321C6A4EF0035095D /* JLRRouteResponse.m in Sources */,
 				D91F71D221C6A2880035095D /* AFHTTPSessionManager.m in Sources */,
 				D91F727D21C6A3300035095D /* SDWebImageDownloaderOperation.m in Sources */,
 				D91F72DA21C6A39A0035095D /* JSONModelClassProperty.m in Sources */,
 				D967FFC321DC972300A8DB00 /* XYHomeCollectionCell.m in Sources */,
+				4E5DB6FF225E051300C5C85A /* XYAnimationView.m in Sources */,
 				D91F72F821C6A5810035095D /* XYTabBarController.m in Sources */,
 				D91F727421C6A3300035095D /* FLAnimatedImageView.m in Sources */,
 				D91F72EF21C6A4EF0035095D /* JLRParsingUtilities.m in Sources */,
@@ -1511,6 +1639,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y8XA2QH338;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1531,6 +1660,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y8XA2QH338;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

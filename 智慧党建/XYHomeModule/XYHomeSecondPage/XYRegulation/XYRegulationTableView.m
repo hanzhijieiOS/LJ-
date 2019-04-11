@@ -8,8 +8,12 @@
 
 #import "XYRegulationTableView.h"
 #import "XYRegulationCell.h"
+#import "XYRegulationCell_V2.h"
+#import "XYRegulationModel.h"
 
 @interface XYRegulationTableView ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) XYRegulationModel * dataModel;
 
 @end
 
@@ -18,7 +22,8 @@
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     self = [super initWithFrame:frame style:style];
     if (self) {
-        [self registerClass:NSClassFromString(@"XYRegulationCell") forCellReuseIdentifier:[XYRegulationCell getCellIdentifierWithData:nil]];
+        self.contentInset = UIEdgeInsetsMake(0, 0, kSafeAreaBottomPaddingHeight, 0);
+        [self registerClass:NSClassFromString(@"XYRegulationCell_V2") forCellReuseIdentifier:[XYRegulationCell_V2 getCellIdentifierWithData:nil]];
         self.dataSource = self;
         self.delegate = self;
     }
@@ -26,11 +31,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return self.dataModel.titleAry.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    XYRegulationCell * cell = [tableView dequeueReusableCellWithIdentifier:[XYRegulationCell getCellIdentifierWithData:nil] forIndexPath:indexPath];
+    XYRegulationCell_V2 * cell = [tableView dequeueReusableCellWithIdentifier:[XYRegulationCell_V2 getCellIdentifierWithData:nil] forIndexPath:indexPath];
+    [cell updateTitlt:self.dataModel.titleAry[indexPath.row] subTitle:self.dataModel.subTitleAry[indexPath.row]];
     return cell;
 }
 
@@ -38,12 +44,20 @@
     return [XYRegulationCell getCellHeightWithData:nil];
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString * URLStr = [NSString stringWithFormat:@"XYHome://Home/XYRegulationDetailController?Scheme=0&URL=%@", self.dataModel.URLAry[indexPath.row]];
+    NSString * URLS = [URLStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSURL * URL = [NSURL URLWithString:URLS];
+    [[UIApplication sharedApplication] openURL:URL options:[NSDictionary dictionary] completionHandler:nil];
 }
-*/
+
+- (void)reloadDataWithData:(id)data{
+    if (![data isKindOfClass:NSClassFromString(@"XYRegulationModel")]) {
+        return;
+    }
+    self.dataModel = (XYRegulationModel *)data;
+    [self reloadData];
+    [self setNeedsLayout];
+}
 
 @end

@@ -40,7 +40,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSString * URLStr = @"XYHome://Home/XYPaymentDetailController/scheme=0";
+    NSString * URLStr = @"XYHome://Home/XYPaymentDetailController?Scheme=0";
     NSString * URLS = [URLStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSURL * URL = [NSURL URLWithString:URLS];
     [[UIApplication sharedApplication] openURL:URL options:[NSDictionary dictionary] completionHandler:nil];

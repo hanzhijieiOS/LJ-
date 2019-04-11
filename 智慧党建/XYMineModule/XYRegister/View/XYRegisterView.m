@@ -34,7 +34,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-//        [self addSubview:self.bgImage];
         [self addSubview:self.nameTF];
         [self addSubview:self.telTF];
         [self addSubview:self.passwordTF];
@@ -91,16 +90,13 @@
 - (void)sendButtonDidClick{
     [self hidesKeyboard];
     [MBProgressHUD showHUDAddedTo:[XYUtils getTopViewController].view animated:YES];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUDForView:[XYUtils getTopViewController].view animated:YES];
-    });
-//    [AppHelper ShowHUDPrompt:@"正在注册...." withParentViewController:nil];
+    [AppHelper ShowHUDPrompt:@"正在注册...." withParentViewController:nil];
 
-//    [[XYLoginManager sharedManager] registerWithTel:self.telTF.text Password:self.passwordTF.text Email:nil Name:self.nameTF.text Birthday:nil Sex:nil succeed:^(XYRegisterModel * _Nonnull model) {
-//
-//    } failureBlock:^(NSError * _Nonnull error) {
-//
-//    }];
+    [[XYLoginManager sharedManager] registerWithTel:self.telTF.text Password:self.passwordTF.text Email:nil Name:self.nameTF.text Birthday:nil Sex:nil succeed:^(XYRegisterModel * _Nonnull model) {
+        [MBProgressHUD hideHUDForView:[XYUtils getTopViewController].view animated:YES];
+    } failureBlock:^(NSError * _Nonnull error) {
+        [MBProgressHUD hideHUDForView:[XYUtils getTopViewController].view animated:YES];    
+    }];
 }
 
 #pragma mark - lazy loading

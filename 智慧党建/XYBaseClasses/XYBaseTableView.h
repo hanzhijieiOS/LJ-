@@ -10,4 +10,6 @@
 
 @interface XYBaseTableView : UITableView
 
+- (void)reloadDataWithData:(id)data;
+
 @end

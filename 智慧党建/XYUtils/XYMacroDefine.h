@@ -120,7 +120,7 @@ dispatch_async(dispatch_get_main_queue(), block);\
 //顶部高度，状态栏+导航栏  64/88
 #define kTopHeight (kStatusBarHeight + kNavBarHeight)
 //底部安全区域得高度
-#define kSafeAreaBottomHeight (SCREEN_HEIGHT == 812.0 ? 34 : 0)
+#define kSafeAreaBottomHeight (SCREEN_HEIGHT >= 812.0 ? 34 : 0)
 
 #define ColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 

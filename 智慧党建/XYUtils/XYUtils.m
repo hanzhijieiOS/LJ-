@@ -651,6 +651,20 @@
     return currentVC;
 }
 
++ (BOOL)isiPhoneX {
+    static int isIPhonex = -1;
+    if (isIPhonex == -1) {
+        CGFloat MAX_WIDTH = MAX([[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width);
+        BOOL IS_LARGE_OR_EQUAL_NUMBER = (fabs(MAX_WIDTH - 812) < 0.001) || MAX_WIDTH > 812;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone && IS_LARGE_OR_EQUAL_NUMBER) {
+            isIPhonex = 1;
+        }else{
+            isIPhonex = 0;
+        }
+    }
+    return isIPhonex == 1;
+}
+
 #pragma mark - Date Formating Methods
 
 + (NSDate *)dateFromString:(NSString *)dateString format:(NSString *)format
