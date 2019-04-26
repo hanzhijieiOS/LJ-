@@ -3,7 +3,7 @@
 //  MobileApp
 //
 //  Created by Jay on 2017/8/31.
-//  Copyright © 2017年 xiyoumobile. All rights reserved.
+//  Copyright © 2018年 xiyoumobile. All rights reserved.
 //
 
 #import "XYMAnimation.h"
