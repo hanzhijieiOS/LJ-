@@ -154,6 +154,7 @@
 		D967FFC321DC972300A8DB00 /* XYHomeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D967FFC221DC972300A8DB00 /* XYHomeCollectionCell.m */; };
 		D967FFC621DCA8CA00A8DB00 /* XYCycleScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D967FFC521DCA8CA00A8DB00 /* XYCycleScrollViewCell.m */; };
 		D967FFC921DCBAD600A8DB00 /* XYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D967FFC821DCBAD600A8DB00 /* XYTabBar.m */; };
+		D99409912273658B001A5B08 /* XYMAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D994098F2273658A001A5B08 /* XYMAnimation.m */; };
 		D994A6BB21E8F1C30084E0FA /* home_news@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D994A6B821E8F1C20084E0FA /* home_news@2x.png */; };
 		D994A6C021E8F6BB0084E0FA /* tb_home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D994A6BF21E8F6BA0084E0FA /* tb_home@2x.png */; };
 		D994A6C421E8FA350084E0FA /* tb_home_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D994A6C321E8FA340084E0FA /* tb_home_s@2x.png */; };
@@ -453,6 +454,8 @@
 		D967FFC521DCA8CA00A8DB00 /* XYCycleScrollViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYCycleScrollViewCell.m; sourceTree = "<group>"; };
 		D967FFC721DCBAD600A8DB00 /* XYTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYTabBar.h; sourceTree = "<group>"; };
 		D967FFC821DCBAD600A8DB00 /* XYTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYTabBar.m; sourceTree = "<group>"; };
+		D994098F2273658A001A5B08 /* XYMAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYMAnimation.m; sourceTree = "<group>"; };
+		D99409902273658A001A5B08 /* XYMAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYMAnimation.h; sourceTree = "<group>"; };
 		D994A6B821E8F1C20084E0FA /* home_news@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_news@2x.png"; sourceTree = "<group>"; };
 		D994A6BF21E8F6BA0084E0FA /* tb_home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tb_home@2x.png"; sourceTree = "<group>"; };
 		D994A6C321E8FA340084E0FA /* tb_home_s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tb_home_s@2x.png"; sourceTree = "<group>"; };
@@ -866,6 +869,8 @@
 				D91F730421C6A63E0035095D /* XYBaseTableViewCell.m */,
 				4E5DB6FD225E051300C5C85A /* XYAnimationView.h */,
 				4E5DB6FE225E051300C5C85A /* XYAnimationView.m */,
+				D99409902273658A001A5B08 /* XYMAnimation.h */,
+				D994098F2273658A001A5B08 /* XYMAnimation.m */,
 			);
 			path = XYBaseClasses;
 			sourceTree = "<group>";
@@ -1376,6 +1381,7 @@
 				D9388E4C21C7BEF600715BC7 /* XYUtils.m in Sources */,
 				D91F72F221C6A4EF0035095D /* JLRRouteRequest.m in Sources */,
 				D91F72A521C6A34B0035095D /* MASConstraint.m in Sources */,
+				D99409912273658B001A5B08 /* XYMAnimation.m in Sources */,
 				D91F72E021C6A39A0035095D /* JSONValueTransformer.m in Sources */,
 				D91F727221C6A3300035095D /* FLAnimatedImage.m in Sources */,
 				D91F72A921C6A34B0035095D /* MASViewConstraint.m in Sources */,

@@ -8,10 +8,12 @@
 
 #import "XYBaseViewController.h"
 #import "XYAnimationView.h"
+#import "XYMAnimation.h"
 
 @interface XYBaseViewController ()
 
 @property (nonatomic, strong) XYAnimationView * animationView;
+@property (nonatomic, strong) XYMAnimation * animateView;
 @property (nonatomic, strong) UIView * emptyView;
 @property (nonatomic, strong) UIImageView * emptyImgView;
 @property (nonatomic, strong) UILabel * emptyLabel;
@@ -32,13 +34,14 @@
 }
 
 - (void)showLoadingAnimation{
-    [self.view addSubview:self.animationView];
-    [self.animationView start];
+    if (_animateView.superview) {
+        return;
+    }
+    [self.animateView startAnimation];
 }
 
 - (void)stopLoadingAnimation{
-    [self.animationView stop];
-    [self.animationView removeFromSuperview];
+    [self.animateView stopAnimation];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,19 +62,14 @@
     NSLog(@"reloadData");
 }
 
-- (void)viewDidLayoutSubviews{
-    [super viewDidLayoutSubviews];
-    CGRect rect = _animationView.frame;
-    rect.origin.y -= self.view.origin.y;
-    [_animationView setFrame:rect];
-}
-
-- (XYAnimationView *)animationView{
-    if (!_animationView) {
-        _animationView = [[XYAnimationView alloc] initWithFrame:self.view.bounds];
-        [self.view addSubview:_animationView];
+- (XYMAnimation *)animateView{
+    if (!_animateView) {
+        _animateView = [[XYMAnimation alloc] initWithFrame:self.view.bounds];
     }
-    return _animationView;
+    if (!_animateView.superview) {
+        [self.view addSubview:_animateView];
+    }
+    return _animateView;
 }
 
 - (UIView *)emptyView{

@@ -34,7 +34,7 @@
     if (!cell) {
         cell = [[XYPaymentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"XYPaymentCell"];
     }
-    cell.titleLabel.text = [NSString stringWithFormat:@"%ld月份党费",(long)indexPath.row];
+    cell.titleLabel.text = [NSString stringWithFormat:@"%ld月份党费",(long)indexPath.row + 1];
     return cell;
 }
 
