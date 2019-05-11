@@ -8,6 +8,7 @@
 
 #import "XYLoginController.h"
 #import "XYLoginTextField.h"
+#import "XYLoginManager.h"
 #import "XYRegisterController.h"
 #define K_LeftGap 12
 
@@ -61,7 +62,15 @@
 }
 
 - (void)login{
-    [AppHelper ShowHUDPrompt:@"正在登录...." withParentViewController:nil];
+    [AppHelper ShowHUDPrompt:@"正在登录...."];
+    [[XYLoginManager sharedManager] loginWithAccount:@"12345566423221214" password:@"123212" succeedBlock:^(XYLoginModel * _Nonnull model) {
+        [AppHelper dismissHUDPromptWithAnimation:NO];
+        [AppHelper ShowHUDPrompt:@"登录成功"];
+        [self dismiss];
+    } failureBlock:^(NSError * _Nonnull error) {
+        [AppHelper dismissHUDPromptWithAnimation:NO];
+        [AppHelper ShowHUDPrompt:[NSString stringWithFormat:@"%@",error.domain]];
+    }];
 }
 
 - (void)dismiss{

@@ -41,8 +41,16 @@
     [hub showAnimated:YES];
 }
 
-+ (void)DismissHUDPromptWithText:(NSString *)promptText{
-    
++ (void)dismissHUDPromptWithSuperview:(UIView *)superview{
+    if (superview) {
+        [MBProgressHUD hideHUDForView:superview animated:YES];
+    }else{
+        [MBProgressHUD hideHUDForView:[XYUtils getTopViewController].view animated:YES];
+    }
+}
+
++ (void)dismissHUDPromptWithAnimation:(BOOL)animation{
+    [MBProgressHUD hideHUDForView:[XYUtils getTopViewController].view animated:animation];
 }
 
 @end

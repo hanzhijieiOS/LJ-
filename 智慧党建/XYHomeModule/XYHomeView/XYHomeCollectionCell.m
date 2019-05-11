@@ -28,9 +28,9 @@ static NSString * cellIdentifier = @"XYHomeCollectionViewCell";
     if (self) {
         [self initializeCollectionView];
         self.backgroundColor = [UIColor whiteColor];
-        self.imgArray = [NSArray arrayWithObjects:@"zy_dangfei.png",@"zy_dangzhang.png",@"zy_kaoshi.png",@"zy_gonggao.png",@"zy_huiyi.png",@"zy_kaoshi.png",@"zy_ziliao.png",@"zy_gengduo.png", nil];
-        self.itemArray = [NSArray arrayWithObjects:@"党费缴纳",@"党章党规",@"在线考试",@"公示公告",@"党员会议",@"支部在线",@"党课资料",@"查看更多", nil];
-        self.vcArray = [NSArray arrayWithObjects:@"XYPaymentViewController", @"XYRegulationController", @"ZTHHomeTableViewController", nil];
+        self.imgArray = [NSArray arrayWithObjects:@"zy_dangfei.png",@"zy_dangzhang.png",@"zy_kaoshi.png",@"zy_zixun.png",@"zy_huiyi.png",@"zy_kaoshi.png",@"zy_ziliao.png",@"zy_gengduo.png", nil];
+        self.itemArray = [NSArray arrayWithObjects:@"党费缴纳",@"党章党规",@"在线考试",@"资讯阅览",@"党员会议",@"支部在线",@"党课资料",@"查看更多", nil];
+        self.vcArray = [NSArray arrayWithObjects:@"XYPaymentViewController", @"XYRegulationController", @"XYExamController", @"XYNewsViewController", nil];
     }
     return self;
 }

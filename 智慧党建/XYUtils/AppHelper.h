@@ -15,7 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)ShowHUDPrompt:(NSString *)promptText;
 
-+ (void)DismissHUDPromptWithText:(NSString *)promptText;
++ (void)dismissHUDPromptWithSuperview:(UIView * __nullable)superview;
+
++ (void)dismissHUDPromptWithAnimation:(BOOL)animation;
 
 @end
 

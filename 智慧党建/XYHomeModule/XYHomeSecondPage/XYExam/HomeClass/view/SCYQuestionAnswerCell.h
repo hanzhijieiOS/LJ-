@@ -7,10 +7,12 @@
 //  征信第二部回答问题的cell
 
 #import "ZTHBaseTableViewCell.h"
+#import "ZTHAnswerModel.h"
 
 @class ZTHQuestionModel;
 @interface SCYQuestionAnswerCell : ZTHBaseTableViewCell
-@property (nonatomic, copy) void(^selectAnswerBlock)(NSString *, NSInteger answerCount);
+
+@property (nonatomic, strong) void(^selectAnswerBlock_V2)(ZTHAnswerModel * , NSInteger answerCount);
 
 /**
  *  cell的创建 默认重用

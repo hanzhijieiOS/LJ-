@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class XYExamTableViewCell;
+@class XYExamListCell;
 
 @interface XYExamView : UIView
 
@@ -21,5 +21,5 @@
 
 - (NSString *)getAnswerLabeltext;
 
-+ (CGFloat)questionAnswerCell:(XYExamTableViewCell *)questionAnswerCell rowHeightForObject:(id)object;
++ (CGFloat)questionAnswerCell:(XYExamListCell *)questionAnswerCell rowHeightForObject:(id)object;
 @end

@@ -10,4 +10,6 @@
 
 @interface XYMineTableView : XYBaseTableView
 
+- (void)refreshMemorySize;
+
 @end

@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import "XYTabBarController.h"
-
+#import "XYNewsManager.h"
+#import "XYLoginManager.h"
 @interface AppDelegate ()
 
 @end
@@ -18,6 +19,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    BOOL isLogin = [[XYLoginManager sharedManager] isLogin];
+    if (isLogin) {
+        NSDictionary * dic = [[NSUserDefaults standardUserDefaults] objectForKey:XYCurrentUserAccount];
+        if (dic) {
+            [[XYLoginManager sharedManager] loginWithAccount:[dic objectForKey:XYCurrentUsername] password:[dic objectForKey:XYCurrentUserPassword] succeedBlock:^(XYLoginModel * _Nonnull model) {
+            } failureBlock:^(NSError * _Nonnull error) {
+                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:XYUserLoginStatus];
+            }];
+        }
+    }
     XYTabBarController * tabBarVC = [[XYTabBarController alloc] init];
     [tabBarVC initSubViewController];
     self.window.rootViewController = tabBarVC;

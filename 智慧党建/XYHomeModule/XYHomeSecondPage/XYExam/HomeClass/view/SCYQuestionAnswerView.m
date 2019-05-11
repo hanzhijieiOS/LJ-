@@ -29,6 +29,7 @@ static const NSInteger kLeftAndRightMargin = 15;
 {
     self = [super init];
     if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(examComplete) name:XYExamCompleteNotification object:nil];
         [self createUI];
     }
     return self;
@@ -42,6 +43,11 @@ static const NSInteger kLeftAndRightMargin = 15;
     }
     return self;
 }
+
+- (void)examComplete{
+    self.userInteractionEnabled = NO;
+}
+
 #pragma mark - private
 - (void)createUI{
     [self addSubview:self.button];
@@ -57,6 +63,11 @@ static const NSInteger kLeftAndRightMargin = 15;
     CGSize answerLabelSize = [self.answerLabel.text sizeWithPreferWidth:answerLabelWidth font:[UIFont systemFontOfSize:answerLabelFont]];
     self.answerLabel.frame = CGRectMake(self.button.right + 10, 6, answerLabelWidth, answerLabelSize.height);
 }
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - public
 - (void)setAnswerLabelTitle:(NSString *)title{
     self.answerLabel.text = title;
@@ -88,21 +99,17 @@ static const NSInteger kLeftAndRightMargin = 15;
         [_button setImage:[UIImage imageNamed:@"credit_answer_normal"] forState:UIControlStateNormal];
         [_button setImage:[UIImage imageNamed:@"credit_answer_selected"] forState:UIControlStateSelected];
         _button.userInteractionEnabled = NO;
-//        _button.layer.borderWidth = 1.0f;
-//        _button.layer.borderColor = rgbColor(39, 165, 225).CGColor;
     }
     return _button;
 }
 - (UILabel *)answerLabel{
     if (!_answerLabel) {
         _answerLabel = [[UILabel alloc] init];
-        _answerLabel.textColor = [UIColor lightGrayColor];
+        _answerLabel.textColor = [UIColor grayColor];
         _answerLabel.font=[UIFont systemFontOfSize:answerLabelFont];
         _answerLabel.numberOfLines = 0;
         _answerLabel.lineBreakMode=NSLineBreakByWordWrapping;
 
-//        _answerLabel.layer.borderWidth = 1.0f;
-//        _answerLabel.layer.borderColor = [UIColor redColor].CGColor;
     }
     return _answerLabel;
 }

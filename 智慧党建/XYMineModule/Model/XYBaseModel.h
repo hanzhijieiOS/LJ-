@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XYBaseModel : JSONModel
 
-@property (nonatomic, assign) NSInteger code;
+@property (nonatomic, assign) long errcode;
 
 @property (nonatomic, copy) NSString * message;
 

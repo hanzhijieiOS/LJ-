@@ -6,9 +6,9 @@
 //  Copyright © 2019年 韩智杰. All rights reserved.
 //
 
-#import "XYExamTableViewCell.h"
+#import "XYExamListCell.h"
 
-@implementation XYExamTableViewCell
+@implementation XYExamListCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

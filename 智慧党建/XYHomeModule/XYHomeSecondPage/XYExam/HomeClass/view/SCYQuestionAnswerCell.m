@@ -23,6 +23,7 @@ static const NSInteger kLeftAndRightMargin = 15;
 
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) SCYQuestionAnswerView *selectedAnswerButton;
+@property (nonatomic, strong) ZTHQuestionModel * questionModel;
 
 @end
 
@@ -90,7 +91,7 @@ static const NSInteger kLeftAndRightMargin = 15;
     if (!questionModel) {
         return;
     }
-    
+    self.questionModel = questionModel;
     // 从选中数组中，找出是否有选中的答案。  有，记录答案的索引
      __block NSString *seletedAnswerCount;
     if (selectedIndexpathArray.count > 0 ) {
@@ -154,7 +155,9 @@ static const NSInteger kLeftAndRightMargin = 15;
     [self.selectedAnswerButton cancelButtonStatusSelected];
     [questView setButtonStatusToBeSelected];
     self.selectedAnswerButton = questView;
-    self.selectAnswerBlock([questView getAnswerLabeltext], (self.selectedAnswerButton.tag - 1000) * 0.01 + 1);
+    NSInteger index = (self.selectedAnswerButton.tag - 1000) * 0.01;
+    ZTHAnswerModel * answer = self.questionModel.options[index];
+    self.selectAnswerBlock_V2(answer, (self.selectedAnswerButton.tag - 1000) * 0.01 + 1);
 }
 
 #pragma mark - lazy
@@ -165,8 +168,6 @@ static const NSInteger kLeftAndRightMargin = 15;
         _titleLabel.numberOfLines = 0;
         _titleLabel.lineBreakMode=NSLineBreakByWordWrapping;
         _titleLabel.textColor = [UIColor blackColor];
-//        _titleLabel.layer.borderWidth = 1.0f;
-//        _titleLabel.layer.borderColor = [UIColor redColor].CGColor;
     }
     return _titleLabel;
 }

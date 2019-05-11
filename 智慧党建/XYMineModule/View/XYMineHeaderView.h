@@ -18,4 +18,12 @@
 
 @property (nonatomic, strong) UIImageView * imageView;
 
+@property (nonatomic, strong) UIImageView * sexImgView;
+
+@property (nonatomic, strong) UIImageView * backgroundImage;
+
+@property (nonatomic, strong) UILabel * joinTimeLabel;
+
+- (void)reloadData;
+
 @end

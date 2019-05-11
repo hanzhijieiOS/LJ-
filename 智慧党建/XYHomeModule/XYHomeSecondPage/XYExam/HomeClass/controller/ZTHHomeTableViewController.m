@@ -13,15 +13,21 @@
 #import "ZTHAnswerModel.h"
 #import "ZTHDataSourceManager.h"
 #import "SCYQuestionAnswerCell.h"
+#import "XYExamManager.h"
+#import "XYExamInfoModel.h"
+#import "XYExamDataModel.h"
 
 @interface ZTHHomeTableViewController ()
 
 @property (nonatomic, copy) NSArray *questions;
-
 @property (nonatomic, strong) NSMutableArray *heightArray;
 @property (nonatomic, strong) NSMutableArray *selectedIndexpathArray; // cell的选中答案数组
-
 @property (nonatomic, strong) UIButton *tableFooterButton;
+
+@property (nonatomic, copy) NSArray <XYExamInfoModel *> * publishExam;
+@property (nonatomic, copy) NSString * examID;
+
+@property (nonatomic, strong) XYExamDataModel * model;
 
 @end
 
@@ -37,7 +43,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.tableFooterView = self.tableFooterButton;
-    
+    [[XYExamManager sharedManager] fetchExamDetailInformationWithExamPaperNum:self.examID successBlock:^(XYExamDataModel *model) {
+        self.model = model;
+        [self initQuestions];
+        [self.tableView reloadData];
+    } failureBlock:^(NSError *error) {
+        NSLog(@"");
+    }];
 }
 
 #pragma mark - Table view data source
@@ -54,9 +66,10 @@
     ZTHQuestionModel *questionModel = [self.questions cd_safeObjectAtIndex:indexPath.row];
     SCYQuestionAnswerCell *cell = [SCYQuestionAnswerCell questionAnswerCellWithTable:tableView answersCount:questionModel.options.count]; // 自动复用
     [cell setCellDataWithSCYCreditLoginQuestionModel:questionModel andSelectedIndexpathArray:self.selectedIndexpathArray andIndexPath:indexPath]; // 提供接口设置数据
-    cell.selectAnswerBlock = ^(NSString *answerString,NSInteger answerCount){
-        [weakSelf questionComplentionWithAnswers:answerString andIndexPath:indexPath andAnswerCount:(int)answerCount];
-    }; // 事件回调
+    cell.selectAnswerBlock_V2 = ^(ZTHAnswerModel *answer, NSInteger answerCount) {
+        [weakSelf questionDidComplentionWithAnswer:answer];
+    };
+    
     return cell;
 }
 
@@ -78,47 +91,87 @@
 }
 #pragma mark - lazy
 
-/// 问题答案选择后的赋值
-- (void)questionComplentionWithAnswers:(NSString *)answer andIndexPath:(NSIndexPath *)indexPath andAnswerCount:(int)answerCount{
-    if (self.selectedIndexpathArray.count == 0) { // 为空直接添加
-        [self addDataWithIndexPath:indexPath andAnswerCount:answerCount];
+- (void)questionDidComplentionWithAnswer:(ZTHAnswerModel *)answer{
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    [dic setObject:@(answer.type) forKey:@"examSubjectType"];
+    [dic setObject:answer.answerID forKey:@"answer"];
+    [dic setObject:answer.num forKey:@"subjectId"];
+    if (self.selectedIndexpathArray.count == 0) {
+        [self.selectedIndexpathArray addObject:dic];
     }else{
-        NSMutableArray *array = self.selectedIndexpathArray.mutableCopy;
         BOOL isExist = NO;
-        for (NSMutableDictionary *dictionary in array) { // 存在删除，再加
-            if ([dictionary.allKeys.firstObject isEqualToString:[NSString stringWithFormat:@"%d", (int)indexPath.row]]) {
+        for (NSDictionary * dict in self.selectedIndexpathArray) {
+            if ([[dict valueForKey:@"subjectId"] isEqualToString:[dic objectForKey:@"subjectId"]]) {
+                [self.selectedIndexpathArray removeObject:dict];
+                [self.selectedIndexpathArray addObject:dic];
                 isExist = YES;
-                [self.selectedIndexpathArray removeObject:dictionary];
-                [self addDataWithIndexPath:indexPath andAnswerCount:answerCount];
+                break;
             }
         }
-        if (isExist == NO) {
-            [self addDataWithIndexPath:indexPath andAnswerCount:answerCount];
+        if (!isExist) {
+            [self.selectedIndexpathArray addObject:dic];
         }
     }
-}
-/// cell的选中答案数组添加数据
-- (void)addDataWithIndexPath:(NSIndexPath *)indexPath andAnswerCount:(int)answerCount{
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    [dict setObject:[NSString stringWithFormat:@"%d", answerCount] forKey:[NSString stringWithFormat:@"%d", (int)indexPath.row]];
-    [self.selectedIndexpathArray addObject:dict];
 }
 
 /// 提交答案
 - (void)submitQuestionAnswers{
-    NSLog(@"答案的集合都在这里了------：%@", self.selectedIndexpathArray); // 答案数组
+    NSString * message = @"确定要提交吗？";
+    __weak typeof(self) weakSelf = self;
     if (self.selectedIndexpathArray.count != self.questions.count) {
-        NSLog(@"您还有问题没有填写答案哦");
-        return;
+        message = @"还有问题没有填写，确定要提交吗？";
     }
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:message message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction * action = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf submitAnswers];
+    }];
+    UIAlertAction * cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alert addAction:action];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:nil];
+    return;
 }
+
+- (void)submitAnswers{
+    [AppHelper ShowHUDPrompt:@"正在提交答案...."];
+    [[XYExamManager sharedManager] completeExam:self.examID submitAnswers:self.selectedIndexpathArray success:^{
+        [AppHelper dismissHUDPromptWithAnimation:NO];
+        [AppHelper ShowHUDPrompt:@"提交成功!" withParentViewController:nil];
+        __weak typeof(self) weakSelf = self;
+        [weakSelf completeExam];
+    } failure:^(NSError *error) {
+        [AppHelper dismissHUDPromptWithAnimation:NO];
+        [AppHelper ShowHUDPrompt:@"提交失败，请稍后再试!" withParentViewController:nil];
+    }];
+}
+
+- (void)refreshTableFooterView{
+    [self.tableFooterButton setTitle:@"已完成考试" forState:UIControlStateNormal];
+    self.tableFooterButton.enabled = NO;
+}
+
+- (void)completeExam{
+    [self refreshTableFooterView];
+    [[NSNotificationCenter defaultCenter] postNotificationName:XYExamCompleteNotification object:nil];
+    [[XYExamManager sharedManager] fetchAllExamScoreInfoWithSuccessBlock:^(NSArray<XYExamScoreItemModel *> *model) {
+        NSLog(@"'");
+    } failuerBlock:^(NSError *error) {
+        NSLog(@"");
+    }];
+//    [[XYExamManager sharedManager] fetchExamScoreWithPaperStartNum:_examID successBlock:^(XYExamScoreItemModel *model) {
+//        NSLog(@"");
+//    } failureBlock:^(NSError *error) {
+//        NSLog(@"");
+//    }];
+}
+
 #pragma mark - lazy
-- (NSArray *)questions{
-    if (!_questions) {
-        ZTHDataSourceManager *manager = [[ZTHDataSourceManager alloc] init];
-        _questions = [NSArray arrayWithArray:manager.questions];
-    }
-    return _questions;
+
+- (void)initQuestions{
+    ZTHDataSourceManager *manager = [[ZTHDataSourceManager alloc] initWithExamData:self.model];
+    _questions = [NSArray arrayWithArray:manager.questions];
 }
 
 - (NSMutableArray *)heightArray{

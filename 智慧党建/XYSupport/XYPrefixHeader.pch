@@ -23,7 +23,10 @@
 #import "UIView+Position.h"
 #import "MBProgressHUD.h"
 #import "AppHelper.h"
-
+#import "FDActionSheet.h"
+#import "XYMUIKit.h"
+#import "SVProgressHUD.h"
+#import "YYModel.h"
 #define K_LeftGap 12
 
 #define kSafeAreaBottomPaddingHeight ([XYUtils isiPhoneX] ? 34 : 0)
@@ -39,6 +42,20 @@
 #pragma mark - 登陆相关字段
 
 #define XYUserLoginStatus @"XYUserLoginStatus"
+
+#define XYCurrentUserInfo @"XYCurrentUserInfo"
+
+#define XYCurrentUsername @"XYCurrentUsername"
+
+#define XYCurrentUserPassword @"XYCurrentUserPassword"
+
+#define XYCurrentUserAccount @"XYCurrentUserAccount"
+
+#pragma mark - Notification
+
+#define XYUserLoginStatusDidChangeNotification @"XYUserLoginStatusDidChangeNotification"
+
+#define XYExamCompleteNotification @"XYExamCompleteNotification"
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.

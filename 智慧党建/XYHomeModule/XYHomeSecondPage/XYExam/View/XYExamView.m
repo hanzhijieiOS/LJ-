@@ -77,7 +77,7 @@ static const NSInteger kLeftAndRightMargin = 15;
     return self.answerLabel.text;
 }
 
-+ (CGFloat)questionAnswerCell:(XYExamTableViewCell *)questionAnswerCell rowHeightForObject:(id)object{
++ (CGFloat)questionAnswerCell:(XYExamListCell *)questionAnswerCell rowHeightForObject:(id)object{
     NSString *answer = (NSString *)object;
     CGFloat answerLabelWidth = SCREEN_WIDTH - 2 * kLeftAndRightMargin - buttonWidthandHeight - 10;
     CGSize answerLabelSize = [answer boundingRectWithSize:CGSizeMake(answerLabelWidth, MAXFLOAT)

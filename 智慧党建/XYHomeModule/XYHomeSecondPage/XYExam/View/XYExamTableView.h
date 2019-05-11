@@ -7,7 +7,10 @@
 //
 
 #import "XYBaseTableView.h"
+@class XYExamInfoModel;
 
-@interface XYExamTableView : XYBaseTableView
+@interface XYExamTableView : XYBaseTableView<UITableViewDataSource, UITableViewDelegate>
+
+- (void)updateContentWithData:(NSArray <XYExamInfoModel *> *)data;
 
 @end

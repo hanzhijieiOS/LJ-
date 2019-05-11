@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface ZTHAnswerModel : NSObject
+
 @property (nonatomic, copy) NSString *num;
 @property (nonatomic, copy) NSString *value;
+@property (nonatomic, assign) NSInteger type;
+@property (nonatomic, copy) NSString * answerID;
 
 @end

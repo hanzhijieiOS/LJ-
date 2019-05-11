@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^errorBlock)(NSError * error);
 
-typedef void(^XYRegisterBlock)(XYRegisterModel * model);
+typedef void(^XYRegisterBlock)(XYLoginModel * model);
 
 typedef void(^XYLoginBlock)(XYLoginModel * model);
 
@@ -24,7 +24,9 @@ typedef void(^XYLoginBlock)(XYLoginModel * model);
 
 - (instancetype)init __attribute__((unavailable("Should use sharedManager")));
 
-- (void)loginWithTel:(NSString *)tel Password:(NSString *)password succeedBlock:(XYLoginBlock)succeedBlock failureBlock:(errorBlock)errorBlock;
+- (BOOL)isLogin;
+
+- (void)loginWithAccount:(NSString *)account password:(NSString *)password succeedBlock:(XYLoginBlock)succeedBlock failureBlock:(errorBlock)errorBlock;
 
 - (void)registerWithTel:(NSString *)tel Password:(NSString *)password Email:(NSString * __nullable)email Name:(NSString *)name Birthday:(NSString * __nullable)birthday Sex:(NSString * __nullable)sex succeed:(XYRegisterBlock)succeedBlock failureBlock:(errorBlock)errorBlock;
 

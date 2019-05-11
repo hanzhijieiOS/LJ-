@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XYExamDataModel.h"
 
 @interface ZTHDataSourceManager : NSObject
 
 @property (nonatomic, copy, readonly) NSArray *questions;
+
+- (instancetype)initWithExamData:(XYExamDataModel *)dataModel;
 
 @end

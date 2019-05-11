@@ -9,22 +9,26 @@
 #import "ZTHDataSourceManager.h"
 #import "ZTHQuestionModel.h"
 #import "ZTHAnswerModel.h"
+#import "XYExamJudgeModel.h"
 
 @interface ZTHDataSourceManager ()
+
 @property (nonatomic, strong) NSMutableArray *dataSource;
+
+@property (nonatomic, strong) XYExamDataModel * model;
 
 @end
 
 @implementation ZTHDataSourceManager
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        [self createDataSource];
-    }
-    return self;
-}
+//- (instancetype)init
+//{
+//    self = [super init];
+//    if (self) {
+//        [self createDataSource];
+//    }
+//    return self;
+//}
 
 - (void)createDataSource{
     self.dataSource = [[NSMutableArray alloc] init];
@@ -36,6 +40,66 @@
     
     _questions = self.dataSource.mutableCopy;
     
+}
+
+- (instancetype)initWithExamData:(XYExamDataModel *)dataModel{
+    self = [super init];
+    self.model = dataModel;
+    self.dataSource = [NSMutableArray array];
+    [self createSelectInfo];
+    [self createJudgeInfo];
+    _questions = self.dataSource.mutableCopy;
+    return self;
+}
+
+- (void)createJudgeInfo{
+    for (XYExamJudgeModel * judge in self.model.examJudgeInfoVos) {
+        NSDictionary * dic = (NSDictionary *)judge;
+        ZTHAnswerModel * as = [[ZTHAnswerModel alloc] init];
+        as.num = [dic objectForKey:@"subjectId"];
+        as.value = @"正确";
+        as.answerID = @"1";
+        as.type = [[dic objectForKey:@"examSubjectType"] integerValue];
+        
+        ZTHAnswerModel * as1 = [[ZTHAnswerModel alloc] init];
+        as1.num = [dic objectForKey:@"subjectId"];
+        as1.value = @"错误";
+        as1.answerID = @"0";
+        as1.type = [[dic objectForKey:@"examSubjectType"] integerValue];
+        
+        ZTHQuestionModel * question = [[ZTHQuestionModel alloc] init];
+        question.questionName = [dic objectForKey:@"examTittle"];
+        question.options = @[as, as1];
+        
+        [self.dataSource addObject:question];
+    }
+}
+
+- (void)createSelectInfo{
+    for (XYExamSelectOptionModel * model in self.model.examSelectInfoVos) {
+        
+        if ([model isKindOfClass:[NSDictionary class]]) {
+            NSDictionary * dic = (NSDictionary *)model;
+            ZTHQuestionModel * question = [[ZTHQuestionModel alloc] init];
+            question.questionName = [dic objectForKey:@"examTittle"];
+            
+            NSMutableArray * array = [NSMutableArray array];
+            NSArray * a = [model valueForKey:@"selectOptionInfos"];
+            for (XYExamSelectInfoModel * info in a) {
+                NSDictionary * dict = (NSDictionary *)info;
+                ZTHAnswerModel * as1 = [[ZTHAnswerModel alloc] init];
+                as1.answerID = [dict objectForKey:@"option"];
+                as1.value = [NSString stringWithFormat:@"%@.%@", [dict objectForKey:@"option"], [dict objectForKey:@"optionContent"]];
+                as1.num = [dic objectForKey:@"subjectId"];
+                as1.type = [[dic objectForKey:@"examSubjectType"] integerValue];
+                
+                [array addObject:as1];
+            }
+            question.options = [array copy];
+            
+            [self.dataSource addObject:question];
+        }
+    }
 }
 
 #pragma mark - 制造点假的数据

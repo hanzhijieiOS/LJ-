@@ -91,12 +91,6 @@
     [self hidesKeyboard];
     [MBProgressHUD showHUDAddedTo:[XYUtils getTopViewController].view animated:YES];
     [AppHelper ShowHUDPrompt:@"正在注册...." withParentViewController:nil];
-
-    [[XYLoginManager sharedManager] registerWithTel:self.telTF.text Password:self.passwordTF.text Email:nil Name:self.nameTF.text Birthday:nil Sex:nil succeed:^(XYRegisterModel * _Nonnull model) {
-        [MBProgressHUD hideHUDForView:[XYUtils getTopViewController].view animated:YES];
-    } failureBlock:^(NSError * _Nonnull error) {
-        [MBProgressHUD hideHUDForView:[XYUtils getTopViewController].view animated:YES];    
-    }];
 }
 
 #pragma mark - lazy loading

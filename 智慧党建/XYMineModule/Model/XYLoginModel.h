@@ -7,10 +7,13 @@
 //
 
 #import "XYBaseModel.h"
+#import "XYLoginItemModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XYLoginModel : XYBaseModel
+
+@property (nonatomic, strong) XYLoginItemModel * data;
 
 @end
 
