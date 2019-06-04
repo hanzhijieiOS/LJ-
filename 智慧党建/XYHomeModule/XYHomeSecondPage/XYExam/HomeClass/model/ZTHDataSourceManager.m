@@ -54,24 +54,45 @@
 
 - (void)createJudgeInfo{
     for (XYExamJudgeModel * judge in self.model.examJudgeInfoVos) {
-        NSDictionary * dic = (NSDictionary *)judge;
-        ZTHAnswerModel * as = [[ZTHAnswerModel alloc] init];
-        as.num = [dic objectForKey:@"subjectId"];
-        as.value = @"正确";
-        as.answerID = @"1";
-        as.type = [[dic objectForKey:@"examSubjectType"] integerValue];
+        if ([judge isKindOfClass:[NSDictionary class]]) {
+            NSDictionary * dic = (NSDictionary *)judge;
+            ZTHAnswerModel * as = [[ZTHAnswerModel alloc] init];
+            as.num = [dic objectForKey:@"subjectId"];
+            as.value = @"正确";
+            as.answerID = @"1";
+            as.type = [[dic objectForKey:@"examSubjectType"] integerValue];
+            
+            ZTHAnswerModel * as1 = [[ZTHAnswerModel alloc] init];
+            as1.num = [dic objectForKey:@"subjectId"];
+            as1.value = @"错误";
+            as1.answerID = @"0";
+            as1.type = [[dic objectForKey:@"examSubjectType"] integerValue];
+            
+            ZTHQuestionModel * question = [[ZTHQuestionModel alloc] init];
+            question.questionName = [dic objectForKey:@"examTittle"];
+            question.options = @[as, as1];
+            
+            [self.dataSource addObject:question];
+        }else{
+            ZTHAnswerModel * as = [[ZTHAnswerModel alloc] init];
+            as.num = judge.subjectId;
+            as.value = @"正确";
+            as.answerID = @"1";
+            as.type = judge.examSubjectType;
+            
+            ZTHAnswerModel * as1 = [[ZTHAnswerModel alloc] init];
+            as1.num = judge.subjectId;
+            as1.value = @"错误";
+            as1.answerID = @"0";
+            as1.type = judge.examSubjectType;
+            
+            ZTHQuestionModel * question = [[ZTHQuestionModel alloc] init];
+            question.questionName = judge.examTittle;
+            question.options = @[as, as1];
+            
+            [self.dataSource addObject:question];
+        }
         
-        ZTHAnswerModel * as1 = [[ZTHAnswerModel alloc] init];
-        as1.num = [dic objectForKey:@"subjectId"];
-        as1.value = @"错误";
-        as1.answerID = @"0";
-        as1.type = [[dic objectForKey:@"examSubjectType"] integerValue];
-        
-        ZTHQuestionModel * question = [[ZTHQuestionModel alloc] init];
-        question.questionName = [dic objectForKey:@"examTittle"];
-        question.options = @[as, as1];
-        
-        [self.dataSource addObject:question];
     }
 }
 

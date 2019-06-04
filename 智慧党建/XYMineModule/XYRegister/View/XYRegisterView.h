@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol XYRegisterViewDelegate <NSObject>
+
+- (void)registerViewSendButtonDidClickWithDict:(NSDictionary *)dict;
+
+@end
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XYRegisterView : UIScrollView
+
+@property (nonatomic, weak) id <XYRegisterViewDelegate> sendDelegate;
 
 @end
 

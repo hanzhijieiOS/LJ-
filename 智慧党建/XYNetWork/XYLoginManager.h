@@ -30,6 +30,8 @@ typedef void(^XYLoginBlock)(XYLoginModel * model);
 
 - (void)registerWithTel:(NSString *)tel Password:(NSString *)password Email:(NSString * __nullable)email Name:(NSString *)name Birthday:(NSString * __nullable)birthday Sex:(NSString * __nullable)sex succeed:(XYRegisterBlock)succeedBlock failureBlock:(errorBlock)errorBlock;
 
+
+
 @end
 
 NS_ASSUME_NONNULL_END

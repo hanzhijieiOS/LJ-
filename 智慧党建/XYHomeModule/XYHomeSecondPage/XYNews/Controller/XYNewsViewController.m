@@ -54,6 +54,8 @@
     _itemScrollView.HZJDelegate = self;
     _mainScrollView = [[XYNewsMainScrollerView alloc] initWithFrame:CGRectMake(0, _itemScrollView.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - _itemScrollView.frame.size.height) array:_titleArray];
     _mainScrollView.delegate = self;
+    _mainScrollView.showsVerticalScrollIndicator = NO;
+    _mainScrollView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:_itemScrollView];
     [self.view addSubview:_mainScrollView];
     __weak typeof (_mainScrollView)weakScrollView = _mainScrollView;
@@ -94,7 +96,7 @@
         [self.mainScrollView addSubview:newsTableView];
         self.subViewsArray[index] = newsTableView;
         [[XYNewsManager sharedManager] fetchNewsListWithColumnId:(NSInteger)(self.modelArray[index].id) successBlock:^(NSArray<XYNewsListItemModel *> *data) {
-            
+            [newsTableView updateContentWithDataList:data];
         } failureBlock:^(NSError * _Nullable error) {
             
         }];
@@ -105,6 +107,14 @@
 //            } error:^(NSError * _Nullable error) {
 //
 //            }];
+    }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (scrollView == self.mainScrollView) {
+        float offset = scrollView.contentOffset.x;
+        offset = offset/CGRectGetWidth(scrollView.frame);
+        [_itemScrollView moveToIndex:offset];
     }
 }
 

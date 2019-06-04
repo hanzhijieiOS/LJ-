@@ -14,13 +14,13 @@
 
 - (void)registerRoute{
     NSArray * childVC = [self viewControllers];
-    if (childVC.count < 4) {
+    if (childVC.count < 3) {
         return;
     }
     [self registerRouteWithHome:childVC[0]];
-    [self registerRouteWithMessage:childVC[1]];
-    [self registerRouteWithFind:childVC[2]];
-    [self registerRouteWithMine:childVC[3]];
+//    [self registerRouteWithMessage:childVC[1]];
+//    [self registerRouteWithFind:childVC[2]];
+    [self registerRouteWithMine:childVC[2]];
 }
 
 - (void)registerRouteWithHome:(XYNavigationController *)navigation{
@@ -54,7 +54,7 @@
         }else{
             
         }
-        self.selectedIndex = 1;
+//        self.selectedIndex = 1;
         return YES;
     }];
 }
@@ -72,7 +72,7 @@
         }else{
             
         }
-        self.selectedIndex = 2;
+//        self.selectedIndex = 2;
         return YES;
     }];
 }
@@ -101,7 +101,7 @@
                 [[XYUtils getTopViewController].navigationController pushViewController:nextVC animated:YES];
             }
         }
-        self.selectedIndex = 3;
+//        self.selectedIndex = 2; //3
         return YES;
     }];
 }

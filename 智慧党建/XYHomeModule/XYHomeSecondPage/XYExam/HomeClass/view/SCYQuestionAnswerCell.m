@@ -98,8 +98,17 @@ static const NSInteger kLeftAndRightMargin = 15;
         [selectedIndexpathArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if ([obj isKindOfClass:[NSMutableDictionary class]]) {
                 NSMutableDictionary *dict = (NSMutableDictionary *)obj;
-                if ([dict.allKeys.firstObject isEqualToString:[NSString stringWithFormat:@"%ld", (long)indexPath.row]]) {
-                    seletedAnswerCount = dict.allValues.firstObject;
+//                if ([dict.allKeys.firstObject isEqualToString:[NSString stringWithFormat:@"%ld", (long)indexPath.row]]) {
+//                    seletedAnswerCount = dict.allValues.firstObject;
+//                }
+                ZTHAnswerModel * model = self.questionModel.options.firstObject;
+                if ([[dict objectForKey:@"subjectId"] isEqualToString:model.num]) {
+                    for (int i = 0; i < self.questionModel.options.count; i ++) {
+                        ZTHAnswerModel * answer = self.questionModel.options[i];
+                        if ([answer.answerID isEqualToString:[dict objectForKey:@"answer"]]) {
+                            seletedAnswerCount = [NSString stringWithFormat:@"%d", i];
+                        }
+                    }
                 }
             }
         }];
@@ -110,7 +119,7 @@ static const NSInteger kLeftAndRightMargin = 15;
         ZTHAnswerModel *answerModel = questionModel.options[i];
         SCYQuestionAnswerView __weak *questView = [self viewWithTag:i * 100 + 1000];
         if ( seletedAnswerCount.length > 0 ) {// 如果记录数存在，且索引和questView的tag值相等，设置按钮为选中状态
-            if ((questView.tag - 1000) * 0.01 + 1 == seletedAnswerCount.intValue) {
+            if ((questView.tag - 1000) * 0.01 == seletedAnswerCount.intValue) {
                 [self.selectedAnswerButton cancelButtonStatusSelected];
                 [questView setButtonStatusToBeSelected];
                 self.selectedAnswerButton = questView;

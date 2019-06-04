@@ -70,7 +70,8 @@
         self.timeLabel.text = [NSString stringWithFormat:@"考试时间：%@", dataModel.invalidTime];
         self.responsible.text = [NSString stringWithFormat:@"考试主管：%@", dataModel.responsible];
     }
-    self.imgView.backgroundColor = [UIColor grayColor];
+    self.imgView.backgroundColor = [UIColor whiteColor];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"dl_danghui.png"]];
 }
 
 - (UILabel *)titleLabel{
@@ -112,6 +113,7 @@
 - (UIImageView *)imgView{
     if (!_imgView) {
         _imgView = [[UIImageView alloc] init];
+        _imgView.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _imgView;
 }

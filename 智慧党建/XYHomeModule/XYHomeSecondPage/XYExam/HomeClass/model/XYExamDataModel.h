@@ -10,6 +10,8 @@
 #import "XYExamJudgeModel.h"
 #import "XYExamSelectOptionModel.h"
 
+/* 包含一张试卷的全部信息 */
+
 @interface XYExamDataModel : XYBaseModel
 
 @property (nonatomic, assign) NSInteger allScore;

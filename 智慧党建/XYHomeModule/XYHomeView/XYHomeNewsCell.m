@@ -33,13 +33,16 @@ static const float kCellHeight = 86.0f;
         self.itemLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         self.itemLabel.numberOfLines = 2;
         self.itemLabel.font = [UIFont systemFontOfSize:15];
-        self.itemLabel.text = @"习近平出席第二届“一带一路”国际合作高峰论坛开幕式\n";
+        self.itemLabel.text = @"习近平出席第二届“一带一路”国际合作高峰论坛开幕式";
         
         self.timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         self.timeLabel.font = [UIFont systemFontOfSize:12];
         self.timeLabel.text = @"2019.4.24 14:12:36";
         [self.contentView addSubview:self.imgView];
-        self.imgView.backgroundColor = [UIColor grayColor];
+        
+        self.imgView.contentMode = UIViewContentModeScaleAspectFit;
+        self.imgView.backgroundColor = [UIColor whiteColor];
+        [self.imgView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"dangzhang.png"]];
         
         [self.contentView addSubview:self.itemLabel];
         self.itemLabel.backgroundColor = [UIColor whiteColor];

@@ -8,6 +8,8 @@
 
 #import "XYHomeCollectionCell.h"
 #import "XYHomeCollectionViewCell.h"
+#import "XYLoginManager.h"
+@class XYTabBarController;
 
 @interface XYHomeCollectionCell()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -28,9 +30,9 @@ static NSString * cellIdentifier = @"XYHomeCollectionViewCell";
     if (self) {
         [self initializeCollectionView];
         self.backgroundColor = [UIColor whiteColor];
-        self.imgArray = [NSArray arrayWithObjects:@"zy_dangfei.png",@"zy_dangzhang.png",@"zy_kaoshi.png",@"zy_zixun.png",@"zy_huiyi.png",@"zy_kaoshi.png",@"zy_ziliao.png",@"zy_gengduo.png", nil];
-        self.itemArray = [NSArray arrayWithObjects:@"党费缴纳",@"党章党规",@"在线考试",@"资讯阅览",@"党员会议",@"支部在线",@"党课资料",@"查看更多", nil];
-        self.vcArray = [NSArray arrayWithObjects:@"XYPaymentViewController", @"XYRegulationController", @"XYExamController", @"XYNewsViewController", nil];
+        self.imgArray = [NSArray arrayWithObjects:@"zy_dangfei.png",@"zy_dangzhang.png",@"zy_kaoshi.png",@"zy_zixun.png",@"zy_fazhan.png",@"zy_kaoshi.png",@"zy_ziliao.png",@"zy_gengduo.png", nil];
+        self.itemArray = [NSArray arrayWithObjects:@"党费缴纳",@"党章党规",@"在线考试",@"资讯阅览",@"党员发展",@"支部在线",@"党课资料",@"查看更多", nil];
+        self.vcArray = [NSArray arrayWithObjects:@"XYPaymentViewController", @"XYRegulationController", @"XYExamController", @"XYNewsViewController", @"XYDevelopController", nil];
     }
     return self;
 }
@@ -55,11 +57,11 @@ static NSString * cellIdentifier = @"XYHomeCollectionViewCell";
 }
 
 + (CGFloat)getCellHeightWithData:(NSObject *)data{
-    return SCREENWIDTH / 2.0;
+    return SCREENWIDTH / 4.0 * 2;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 8;
+    return 5;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -73,6 +75,20 @@ static NSString * cellIdentifier = @"XYHomeCollectionViewCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row >= self.vcArray.count) {
         return;
+    }
+    if (indexPath.row == 3) {
+        UITabBarController *tab = (UITabBarController *)[UIApplication sharedApplication].delegate.window.rootViewController;
+        [tab setSelectedIndex:1];
+        return;
+    }
+    if (indexPath.row == 0 || indexPath.row == 2) {
+        if (![[XYLoginManager sharedManager] isLogin]) {
+            NSString * URLStr = @"XYMine://Mine/XYLoginController?Scheme=1";
+            NSString * URLS = [URLStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+            NSURL * URL = [NSURL URLWithString:URLS];
+            [[UIApplication sharedApplication] openURL:URL options:[NSDictionary dictionary] completionHandler:nil];
+            return;
+        }
     }
     NSString * urlStr = [NSString stringWithFormat:@"XYHome://Home/%@?Scheme=0",self.vcArray[indexPath.row]];
     NSString * URLS = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];

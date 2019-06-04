@@ -62,8 +62,8 @@
 }
 
 - (void)login{
-    [AppHelper ShowHUDPrompt:@"正在登录...."];
-    [[XYLoginManager sharedManager] loginWithAccount:@"12345566423221214" password:@"123212" succeedBlock:^(XYLoginModel * _Nonnull model) {
+    [AppHelper ShowHUDPrompt:@"正在登录...."];  //@"12345566423221214" @"123212"
+    [[XYLoginManager sharedManager] loginWithAccount:self.userName.textField.text password:self.password.textField.text succeedBlock:^(XYLoginModel * _Nonnull model) {
         [AppHelper dismissHUDPromptWithAnimation:NO];
         [AppHelper ShowHUDPrompt:@"登录成功"];
         [self dismiss];
@@ -80,6 +80,9 @@
 - (void)registerButtonDidClick{
     XYRegisterController * VC = [[XYRegisterController alloc] init];
     [self.navigationController pushViewController:VC animated:YES];
+    
+    
+    
 //    NSString * URLStr = @"XYMine://Mine/XYRegisterController?Scheme=3";
 //    NSString * URLS = [URLStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 //    NSURL * URL = [NSURL URLWithString:URLS];

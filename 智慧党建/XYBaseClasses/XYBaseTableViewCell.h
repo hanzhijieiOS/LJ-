@@ -12,7 +12,7 @@
 
 + (CGFloat)getCellHeightWithData:(NSObject *)data;
 
-+ (NSString *)getCellIdentifierWithData:(NSObject *)data;
++ (NSString *)getCellIdentifierWithData:(NSObject * __nullable)data;
 
 - (void)reloadCellWithData:(NSObject *)data;
 

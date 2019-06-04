@@ -10,12 +10,15 @@
 @class XYNewsAllItemsModel;
 @class XYNewsItemModel;
 @class XYNewsListItemModel;
+@class XYNewsDetailModel;
 
 typedef void(^XYErrorHandler)(NSError * __nullable error);
 
 typedef void(^XYNewsItemHandler)(NSArray <XYNewsItemModel *> * data);
 
 typedef void(^XYNewsListHandler)(NSArray <XYNewsListItemModel *> * data);
+
+typedef void(^XYNewsDetailHandler)(XYNewsDetailModel * model);
 
 @interface XYNewsManager : NSObject
 
@@ -24,5 +27,7 @@ typedef void(^XYNewsListHandler)(NSArray <XYNewsListItemModel *> * data);
 - (void)fetchAllNewsItemWithSuccessBlock:(XYNewsItemHandler)successBlock errorBlock:(XYErrorHandler)errorBlock;
 
 - (void)fetchNewsListWithColumnId:(NSInteger)columnId successBlock:(XYNewsListHandler)successBlock failureBlock:(XYErrorHandler)errorBlock;
+
+- (void)fetchNewsDetailWithNewsId:(NSInteger)newsId successBlock:(XYNewsDetailHandler)successBlock failureBlock:(XYErrorHandler)errorBlock;
 
 @end

@@ -16,6 +16,7 @@
 #import "XYExamManager.h"
 #import "XYExamInfoModel.h"
 #import "XYExamDataModel.h"
+#import "XYExamScoreItemModel.h"
 
 @interface ZTHHomeTableViewController ()
 
@@ -25,12 +26,13 @@
 @property (nonatomic, strong) UIButton *tableFooterButton;
 
 @property (nonatomic, copy) NSArray <XYExamInfoModel *> * publishExam;
+
 @property (nonatomic, copy) NSString * examID;
 
 @property (nonatomic, strong) XYExamDataModel * model;
 
 @end
-
+//  这里是用户反馈的意见
 @implementation ZTHHomeTableViewController
 
 - (instancetype)initWithStyle:(UITableViewStyle)style {
@@ -49,6 +51,33 @@
         [self.tableView reloadData];
     } failureBlock:^(NSError *error) {
         NSLog(@"");
+        NSMutableArray * array = [NSMutableArray array];
+        for (int i = 0; i < 5; i ++) {
+            XYExamJudgeModel * model = [[XYExamJudgeModel alloc] init];
+            model.examTittle = @"测试数据";
+            [array addObject:model];
+        }
+        
+        NSMutableArray * array2 = [NSMutableArray array];
+        for (int i = 0; i < 5; i ++) {
+            XYExamSelectOptionModel * model = [[XYExamSelectOptionModel alloc] init];
+            model.examTittle = @"这是选择题";
+            NSMutableArray * a = [NSMutableArray array];
+            for (int j = 0; j < 3; j ++) {
+                XYExamSelectInfoModel * info = [[XYExamSelectInfoModel alloc] init];
+                info.option = [NSString stringWithFormat:@"%c", (j + 'A')];
+                info.optionContent = @"这是答案";
+                [a addObject:info];
+            }
+            model.selectOptionInfos = a;
+            [array2 addObject:model];
+        }
+        XYExamDataModel * model = [[XYExamDataModel alloc] init];
+        model.examJudgeInfoVos = [array copy];
+        model.examSelectInfoVos = [array2 copy];
+        self.model = model;
+        [self initQuestions];
+        [self.tableView reloadData];
     }];
 }
 
@@ -89,6 +118,7 @@
         return height;
     }
 }
+
 #pragma mark - lazy
 
 - (void)questionDidComplentionWithAnswer:(ZTHAnswerModel *)answer{
@@ -147,24 +177,39 @@
     }];
 }
 
-- (void)refreshTableFooterView{
-    [self.tableFooterButton setTitle:@"已完成考试" forState:UIControlStateNormal];
-    self.tableFooterButton.enabled = NO;
-}
-
 - (void)completeExam{
-    [self refreshTableFooterView];
+    
+    UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 50)];
+    footerView.backgroundColor = [UIColor cyanColor];
+
+    UILabel * score = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, self.view.width, 30)];
+    score.font = [UIFont systemFontOfSize:20];
+    score.textAlignment = NSTextAlignmentCenter;
+    score.text = @"正在统计分数...";
+    [footerView addSubview:score];
+    [score sizeToFit];
+    score.center = CGPointMake(footerView.width / 2.0, footerView.height / 2.0);
+    
+    UIActivityIndicatorView * indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    indicatorView.left = score.right;
+    indicatorView.centerY = score.centerY;
+    indicatorView.color = [UIColor blackColor];
+    indicatorView.backgroundColor = [UIColor clearColor];
+    indicatorView.hidesWhenStopped = YES;
+    [footerView addSubview:indicatorView];
+    [indicatorView startAnimating];
+    
+    self.tableView.tableFooterView = footerView;
+    
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:XYExamCompleteNotification object:nil];
-    [[XYExamManager sharedManager] fetchAllExamScoreInfoWithSuccessBlock:^(NSArray<XYExamScoreItemModel *> *model) {
-        NSLog(@"'");
-    } failuerBlock:^(NSError *error) {
-        NSLog(@"");
+    [[XYExamManager sharedManager] fetchExamScoreWithPaperStartNum:self.examID successBlock:^(XYExamScoreItemModel *model) {
+        [indicatorView stopAnimating];
+        score.text = [NSString stringWithFormat:@"考试成绩：%ld", (long)model.score];
+    } failureBlock:^(NSError *error) {
+        [indicatorView stopAnimating];
+        score.text = @"获取数据错误";
     }];
-//    [[XYExamManager sharedManager] fetchExamScoreWithPaperStartNum:_examID successBlock:^(XYExamScoreItemModel *model) {
-//        NSLog(@"");
-//    } failureBlock:^(NSError *error) {
-//        NSLog(@"");
-//    }];
 }
 
 #pragma mark - lazy

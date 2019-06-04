@@ -13,6 +13,9 @@
 #import "XYMineViewController.h"
 #import "XYNavigationController.h"
 #import "XYTabBarController+JLRoutes.h"
+#import "HZJNewsController.h"
+
+#import "XYNewsViewController.h"
 
 @interface XYTabBarController ()
 
@@ -75,8 +78,17 @@
     NSDictionary *dictMine = [NSDictionary dictionaryWithObject:[UIColor orangeColor] forKey:NSForegroundColorAttributeName];
     [mineNavi.tabBarItem setTitleTextAttributes:dictMine forState:UIControlStateSelected];
     
+    XYNewsViewController * newsVC = [[XYNewsViewController alloc] init];
+    XYNavigationController * newsNavi = [[XYNavigationController alloc] initWithRootViewController:newsVC];
+    newsNavi.tabBarItem.image = [UIImage imageNamed:@"tb_news.png"];
+    UIImage *imageNews = [UIImage imageNamed:@"tb_news_s.png"];
+    imageNews = [imageNews imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [newsNavi.tabBarItem setSelectedImage:imageNews];
+    newsNavi.tabBarItem.title = @"新闻";
+    NSDictionary *dictNews = [NSDictionary dictionaryWithObject:[UIColor orangeColor] forKey:NSForegroundColorAttributeName];
+    [newsNavi.tabBarItem setTitleTextAttributes:dictNews forState:UIControlStateSelected];
     
-    self.viewControllers = @[homeNavi, msgNavi, findNavi, mineNavi];
+    self.viewControllers = @[homeNavi, newsNavi, mineNavi];
     [self registerRoute];
 }
 

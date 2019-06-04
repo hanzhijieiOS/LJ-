@@ -32,12 +32,14 @@
         }];
         
         self.timeLabel = [[UILabel alloc] init];
+        self.timeLabel.backgroundColor = [UIColor yellowColor];
         [self.contentView addSubview:self.timeLabel];
+        self.timeLabel.textAlignment = NSTextAlignmentRight;
         self.timeLabel.font = [UIFont systemFontOfSize:13];
         [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.newsImage.mas_bottom);
             make.right.equalTo(self.mas_right).with.offset(-10);
-            make.width.equalTo(@120);
+            make.width.equalTo(@200);
             make.height.equalTo(@17);
         }];
         
@@ -45,18 +47,25 @@
         [self.contentView addSubview:_contentLabel];
         self.contentLabel.numberOfLines = 2;
         [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.newsImage.mas_top);
+            make.top.equalTo(self.newsImage.mas_top).with.offset(5);
             make.left.equalTo(self.newsImage.mas_right).with.offset(10);
             make.right.equalTo(self.mas_right).with.offset(-10);
-            make.bottom.equalTo(self.mas_bottom).with.offset(-30);
+//            make.bottom.equalTo(self.mas_bottom).with.offset(-30);
+            make.height.mas_equalTo(20);
         }];
     }
     return self;
 }
 
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
+}
+
 - (void)updateContentWithData:(XYNewsListItemModel *)data{
     self.timeLabel.text = data.createTime;
     self.contentLabel.text = data.columnName;
+    self.contentLabel.backgroundColor = [UIColor yellowColor];
     self.newsImage.backgroundColor = [UIColor lightGrayColor];
 }
 

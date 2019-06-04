@@ -8,6 +8,8 @@
 
 #import "XYBaseModel.h"
 
+/* 包含某个判断题的全部信息 */
+
 @interface XYExamJudgeModel : JSONModel
 
 @property (nonatomic, copy) NSString * examAnswer;

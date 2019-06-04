@@ -9,6 +9,7 @@
 #import "XYNewsManager.h"
 #import "XYNewsAllItemsModel.h"
 #import "XYNewsListModel.h"
+#import "XYNewsDetailModel.h"
 
 @implementation XYNewsManager
 
@@ -25,7 +26,7 @@ static XYNewsManager * instance = nil;
 }
 
 - (void)fetchAllNewsItemWithSuccessBlock:(XYNewsItemHandler)successBlock errorBlock:(XYErrorHandler)errorBlock{
-    NSString * URL = [NSString stringWithFormat:@"http://120.79.14.244:8090/BiShe-web/admin/columnManage/getAllParentColumn"];
+    NSString * URL = [NSString stringWithFormat:@"http://120.79.14.244:8090/BiShe-web/columnManage/getAllParentColumn"];
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -45,13 +46,29 @@ static XYNewsManager * instance = nil;
 }
 
 - (void)fetchNewsListWithColumnId:(NSInteger)columnId successBlock:(XYNewsListHandler)successBlock failureBlock:(XYErrorHandler)errorBlock{
-    NSString * URL = [NSString stringWithFormat:@" http://120.79.14.244:8090/BiShe-web/columnManage/getColumnByParent?columnId=%ld", (long)columnId];
+    NSString * URL = [NSString stringWithFormat:@"http://120.79.14.244:8090/BiShe-web/columnManage/getColumnByParent?columnId=%ld", (long)columnId];
+//    NSString * URL = [NSString stringWithFormat:@"http://120.79.14.244:8090/BiShe-web/InformationManage/getColumnInfo"];
+//    NSDictionary * dic = @{@"tittle" : @"",
+//                     @"belongColumn" : [NSNumber numberWithInteger:columnId],
+//                @"informationStatus" : @1,
+//                 @"commentBeginTime" : @"",
+//                   @"commentEndTime" : @"",
+//                       @"createUser" : @""
+//                           };
+//
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json",@"text/javascript", nil];
+//    [manager POST:URL parameters:dic headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+//
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSLog(@"");
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"");
+//    }];
     [manager GET:URL parameters:nil headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        
+
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         XYNewsListModel * model = [XYNewsListModel yy_modelWithDictionary:responseObject];
         if (model) {
@@ -63,4 +80,24 @@ static XYNewsManager * instance = nil;
         errorBlock(error);
     }];
 }
+
+- (void)fetchNewsDetailWithNewsId:(NSInteger)newsId successBlock:(XYNewsDetailHandler)successBlock failureBlock:(XYErrorHandler)errorBlock{
+    NSString * URL = [NSString stringWithFormat:@"http://120.79.14.244:8090/BiShe-web/admin/InformationManage/getColumnInfoDetail?id=%ld", (long)newsId];
+    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json",@"text/javascript", nil];
+    [manager GET:URL parameters:nil headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        XYNewsDetailModel * model = [XYNewsDetailModel yy_modelWithDictionary:responseObject];
+        if (!model) {
+            errorBlock(nil);
+        }
+        successBlock(model);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        errorBlock(error);
+    }];
+}
+
 @end

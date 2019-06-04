@@ -13,11 +13,17 @@
 
 @property (nonatomic, copy) NSString * examAnswer;
 
+@property (nonatomic, assign) long examMiddleType;
+
+@property (nonatomic, copy) NSString * examMiddleTypeName;
+
 @property (nonatomic, assign) long examSubjectType;
 
 @property (nonatomic, copy) NSString * examParse;
 
 @property (nonatomic, copy) NSString * examTittle;
+
+@property (nonatomic, copy) NSString * myAnswer;
 
 @property (nonatomic, assign) NSInteger score;
 

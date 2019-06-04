@@ -89,7 +89,7 @@ static XYLoginManager * instance = nil;
     }
     [dic setObject:name forKey:@"name"];
     [dic setObject:password forKey:@"password"];
-    [dic setObject:sex forKey:@"sex"];
+//    [dic setObject:sex forKey:@"sex"];
     
     AFHTTPSessionManager * mng = [AFHTTPSessionManager manager];
     mng.requestSerializer=[AFJSONRequestSerializer serializer];
@@ -109,7 +109,8 @@ static XYLoginManager * instance = nil;
             if (error) {
                 errorBlock(error);
             }else{
-                XYLoginModel * model = [[XYLoginModel alloc] initWithDictionary:dic error:&error];
+//                XYLoginModel * model = [[XYLoginModel alloc] initWithDictionary:dic error:&error];
+                XYLoginModel * model = [XYLoginModel yy_modelWithDictionary:dic];
                 if (error) {
                     errorBlock(error);
                 }else{

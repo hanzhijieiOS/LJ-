@@ -49,7 +49,7 @@
         XYLoginItemModel *defaultsModel = [NSKeyedUnarchiver unarchiveObjectWithData:defaultsData];
         self.namelabel.text = defaultsModel.name;
         
-        NSString * sectionStr = defaultsModel.job;
+        NSString * sectionStr = defaultsModel.identityValue;
         if (!sectionStr.length) {
             sectionStr = @"西安邮电大学";
         }
@@ -69,10 +69,14 @@
         }
         self.joinTimeLabel.text = joinTime;
         
+        [self.imageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"dangzhang.png"]];
+        
     }else{
         self.namelabel.text = @"未登录，点击登录";
         self.sectionLabel.text = @"";
         self.sexImgView.image = nil;
+        self.joinTimeLabel.text = @"";
+        [self.imageView setImage:[UIImage imageNamed:@"dangzhang.png"]];
     }
     [self setNeedsLayout];
 }
@@ -150,7 +154,7 @@
 - (UIImageView *)imageView{
     if (!_imageView) {
         _imageView = [[UIImageView alloc] init];
-        _imageView.backgroundColor = [UIColor yellowColor];
+        _imageView.backgroundColor = [UIColor whiteColor];
     }
     return _imageView;
 }

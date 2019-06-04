@@ -36,8 +36,8 @@
     self.cycleScrollView.scrollDirection = UICollectionViewScrollDirectionVertical;
     self.cycleScrollView.onlyDisplayText = YES;
     NSMutableArray *titlesArray = [NSMutableArray new];
-    [titlesArray addObject:@"纯文字上下滚动轮播"];
-    [titlesArray addObject:@"纯文字上下滚动轮播 -- demo轮播图4"];
+    [titlesArray addObject:@"七一献礼：党组书记的一堂党课"];
+    [titlesArray addObject:@"庆祝建党97周年"];
     [titlesArray addObjectsFromArray:titlesArray];
     self.cycleScrollView.titlesGroup = [titlesArray copy];
     [self.cycleScrollView disableScrollGesture];

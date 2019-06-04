@@ -10,6 +10,7 @@
 #import "XYExamTableView.h"
 #import "XYExamManager.h"
 #import "XYExamInfoModel.h"
+#import "ZTHHomeTableViewController.h"
 
 @interface XYExamController ()
 

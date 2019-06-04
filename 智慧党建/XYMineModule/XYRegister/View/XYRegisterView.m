@@ -89,7 +89,13 @@
 
 - (void)sendButtonDidClick{
     [self hidesKeyboard];
-    [MBProgressHUD showHUDAddedTo:[XYUtils getTopViewController].view animated:YES];
+    if ([self.sendDelegate respondsToSelector:@selector(registerViewSendButtonDidClickWithDict:)]) {
+        NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+        [dic setObject:self.nameTF.text forKey:@"name"];
+        [dic setObject:self.passwordTF.text forKey:@"password"];
+        [dic setObject:self.telTF.text forKey:@"tel"];
+        [self.sendDelegate registerViewSendButtonDidClickWithDict:dic];
+    }
     [AppHelper ShowHUDPrompt:@"正在注册...." withParentViewController:nil];
 }
 
@@ -139,6 +145,7 @@
     if (!_passwordTF) {
         _passwordTF = [[UITextField alloc] initWithFrame:CGRectZero];
         _passwordTF.placeholder = @"输入密码";
+        _passwordTF.secureTextEntry = YES;
         _passwordTF.font = [UIFont systemFontOfSize:16];
         [_passwordTF setTintColor:[UIColor orangeColor]];
         _passwordTF.layer.cornerRadius = 5;
@@ -154,6 +161,7 @@
     if (!_confirmTF) {
         _confirmTF = [[UITextField alloc] initWithFrame:CGRectZero];
         _confirmTF.placeholder = @"再次输入密码";
+        _confirmTF.secureTextEntry = YES;
         _confirmTF.font = [UIFont systemFontOfSize:16];
         [_confirmTF setTintColor:[UIColor orangeColor]];
         _confirmTF.layer.cornerRadius = 5;

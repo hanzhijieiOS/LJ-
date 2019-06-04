@@ -71,7 +71,7 @@
     self.contentSize = CGSizeMake(_titleArray.count * width, height) ;
 }
 
--(void) itemButtonClick:(UIButton *)button{
+- (void)itemButtonClick:(UIButton *)button{
     _currentIndex = button.tag - 100;
     if(_tapAnimation){
     }else{

@@ -26,7 +26,7 @@
         self.delegate = self;
         self.dataSource = self;
 //        self.dataArray = [NSArray arrayWithObjects:@"我的申请", @"我的收藏", @"学习档案", @"消息通知", @"版本更新", @"退出登录", nil];
-        self.dataArray = [NSArray arrayWithObjects:@"历史成绩", @"清除缓存",@"问题反馈", @"退出登录", nil];
+        self.dataArray = [NSArray arrayWithObjects:@"历史成绩", @"清除缓存", @"问题反馈", @"关于我们" ,@"个人信息", @"退出登录", nil];
         self.headerView = [[XYMineHeaderView alloc] initWithFrame:CGRectMake(K_LeftGap, K_LeftGap, self.width - 2 * K_LeftGap, 200 - 2 * K_LeftGap)];
         UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.width, 200)];
         [view addSubview:self.headerView];
@@ -78,7 +78,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
-        return self.dataArray.count - 1;
+        return self.dataArray.count - 1 - ![[XYLoginManager sharedManager] isLogin];
     }
     return 1;
 }
@@ -112,6 +112,13 @@
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0:{
+                if (![[XYLoginManager sharedManager] isLogin]) {
+                    NSString * URLStr = @"XYMine://Mine/XYLoginController?Scheme=1";
+                    NSString * URLS = [URLStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+                    NSURL * URL = [NSURL URLWithString:URLS];
+                    [[UIApplication sharedApplication] openURL:URL options:[NSDictionary dictionary] completionHandler:nil];
+                    return;
+                }
                 NSString * URLStr = @"XYMine://Mine/XYExamHistoryController?Scheme=0";
                 NSString * URLS = [URLStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
                 NSURL * URL = [NSURL URLWithString:URLS];
@@ -137,6 +144,15 @@
                 [[UIApplication sharedApplication] openURL:URL options:[NSDictionary dictionary] completionHandler:nil];
             }
                 break;
+            case 3:{
+                NSLog(@"关于我们");
+            }
+            case 4:{
+                NSString * URLStr = @"XYMine://Mine/XYInfomationController?Scheme=0";
+                NSString * URLS = [URLStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+                NSURL * URL = [NSURL URLWithString:URLS];
+                [[UIApplication sharedApplication] openURL:URL options:[NSDictionary dictionary] completionHandler:nil];
+            }
             default:
                 break;
         }
@@ -144,10 +160,7 @@
         FDActionSheet * sheet = [[FDActionSheet alloc] initWithTitle:@"确定退出登录吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
         [sheet show];
     }
-//    NSString * URLStr = @"XYMine://Mine/XYLoginController?Scheme=1";
-//    NSString * URLS = [URLStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-//    NSURL * URL = [NSURL URLWithString:URLS];
-//    [[UIApplication sharedApplication] openURL:URL options:[NSDictionary dictionary] completionHandler:nil];
+
 }
 
 - (void)actionSheet:(FDActionSheet *)sheet clickedButtonIndex:(NSInteger)buttonIndex{

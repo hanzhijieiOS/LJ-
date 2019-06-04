@@ -10,26 +10,28 @@
 #import "XYExamSelectInfoModel.h"
 #import "XYExamSelectOptionModel.h"
 
+/* 包含某个选择题的全部信息 */
+
 @interface XYExamSelectModel : XYBaseModel
 
-@property (nonatomic, assign) NSInteger * examInfoType;
-
 @property (nonatomic, copy) NSString * examAnswer;
+
+@property (nonatomic, assign) long examMiddleType;
+
+@property (nonatomic, copy) NSString * examMiddleTypeName;
+
+@property (nonatomic, assign) long examSubjectType;
 
 @property (nonatomic, copy) NSString * examParse;
 
 @property (nonatomic, copy) NSString * examTittle;
 
+@property (nonatomic, copy) NSString * myAnswer;
+
 @property (nonatomic, assign) NSInteger score;
 
-@property (nonatomic, assign) NSInteger examSelectScore;
+@property (nonatomic, copy) NSArray <XYExamSelectInfoModel *> * selectOptionInfos;
 
-@property (nonatomic, copy) NSString * examStartNum;
-
-@property (nonatomic, copy) NSString * examineeId;
-
-@property (nonatomic, copy) NSString * examineeName;
-
-@property (nonatomic, copy) NSArray <XYExamSelectOptionModel *> * examSelectInfoVos;
+@property (nonatomic, copy) NSString * subjectId;
 
 @end

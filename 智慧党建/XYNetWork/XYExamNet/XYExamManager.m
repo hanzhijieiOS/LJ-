@@ -56,7 +56,8 @@ static XYExamManager * instance = nil;
 }
 
 - (void)fetchExamDetailInformationWithExamPaperNum:(NSString *)paperNum successBlock:(XYExamBlock)successBlock failureBlock:(errorBlock)errorBlock{
-    NSString * URL = [NSString stringWithFormat:@"http://120.79.14.244:8090/BiShe-web/examPaper/startExam?examPaperNum=%@", paperNum];
+//    NSString * URL = [NSString stringWithFormat:@"http://120.79.14.244:8090/BiShe-web/examPaper/startExam?examPaperNum=%@", paperNum];
+    NSString * URL = [NSString stringWithFormat:@"http://120.79.14.244:8090/BiShe-web/examPaper/startExam?examPaperNum=%@&examStartNum&page=1&pageSize=50", paperNum];
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -80,7 +81,6 @@ static XYExamManager * instance = nil;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         errorBlock(error);
     }];
-    
 }
 
 - (void)completeExam:(NSString *)examStartNum submitAnswers:(NSArray *)answers success:(XYExamSubmitBlock)successBlock failure:(errorBlock)errorBlock{
@@ -102,7 +102,7 @@ static XYExamManager * instance = nil;
 }
 
 - (void)fetchExamScoreWithPaperStartNum:(NSString *)startNum successBlock:(XYExamScoreBlock)successBlock failureBlock:(errorBlock)errorBlock{
-    NSString * URL = [NSString stringWithFormat:@"http://120.79.14.244:8090/BiShe-web/examPaper/ endExam?examStartNum=%@", startNum];
+    NSString * URL = [NSString stringWithFormat:@"http://120.79.14.244:8090/BiShe-web/examPaper/endExam?examStartNum=%@", startNum];
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];

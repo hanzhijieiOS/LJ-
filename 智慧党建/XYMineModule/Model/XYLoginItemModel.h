@@ -12,11 +12,15 @@
 
 @property (nonatomic, copy) NSString * joinPartyDate;
 
+@property (nonatomic, copy) NSString * userImg;
+
 @property (nonatomic, assign) long identity;
 
 @property (nonatomic, copy) NSString * nationality;
 
 @property (nonatomic, assign) NSInteger sex;
+
+@property (nonatomic, copy) NSString * identityValue;
 
 @property (nonatomic, copy) NSString * turnPositiveDate;
 
